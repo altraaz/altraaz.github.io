@@ -117,18 +117,16 @@
       if (pass === 'qq66462190') {
         document.getElementById('loginOverlay').style.display = 'none';
         sessionStorage.setItem('adminLogged', 'true');
-        sessionStorage.setItem('adminPass', pass); // ← للاستخدام في طلبات API
+        sessionStorage.setItem('adminPass', pass);
       } else {
         showToast('❌ كلمة المرور غير صحيحة');
       }
     }
 
-    // Check if already logged in
     if (sessionStorage.getItem('adminLogged') === 'true') {
       document.getElementById('loginOverlay').style.display = 'none';
     }
 
-    // Allow Enter key
     document.getElementById('adminPass')?.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') checkLogin();
     });
