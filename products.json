@@ -11,17 +11,6 @@
     ]
   },
   {
-    "id": 4,
-    "name": "ستائر مخمل فاخرة",
-    "description": "ستائر مخمل ثقيلة مع بطانة عازلة للضوء",
-    "price": "98 د.ك",
-    "category": "sitar",
-    "image": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400",
-    "images": [
-      "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400"
-    ]
-  },
-  {
     "id": 5,
     "name": "سجاد تركي سميك",
     "price": "13",
