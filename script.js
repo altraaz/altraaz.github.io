@@ -1,11 +1,11 @@
 // ========== Configuration ==========
-// Single source of truth for the WhatsApp number — used on the storefront
-// and in the footer. Change it here only.
-const WHATSAPP_NUMBER = '96566462190'; // ← رقم واتساب المتجر (بالصيغة الدولية بدون +)
-const CALL_NUMBER = '+96566462190'; // ← رقم الاتصال المباشر
-
+const WHATSAPP_NUMBER = '96566462190';
+const CALL_NUMBER = '+96566462190';
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400';
 const STORAGE_KEY = 'ta_products';
+
+// ✅ رابط الـ Worker — تم ضبطه
+const API_BASE = 'https://altraaz-api.altraaz.workers.dev';
 
 const CATEGORY_LABELS = {
   sajad: 'سجاد',
@@ -21,8 +21,6 @@ const CATEGORY_ICONS = {
   sitar: '🪟'
 };
 
-// Fallback data used only if products.json can't be fetched (e.g. the site
-// is opened directly as a local file instead of through a web server).
 const FALLBACK_PRODUCTS = [
   {
     id: 1,
@@ -60,35 +58,50 @@ const FALLBACK_PRODUCTS = [
 
 let currentCategory = 'all';
 let currentSearch = '';
-let editingId = null; // null = adding a new product, otherwise the id being edited
+let editingId = null;
+let currentImageData = '';
+let isPublishing = false;
+
+// ========== API Helpers ==========
+async function apiRequest(endpoint, body) {
+  const password = sessionStorage.getItem('adminPass') || '';
+  const res = await fetch(`${API_BASE}${endpoint}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Admin-Password': password
+    },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: 'Network error' }));
+    throw new Error(err.error || `HTTP ${res.status}`);
+  }
+  return res.json();
+}
 
 // ========== Data Management ==========
+async function loadProducts() {
+  try {
+    const res = await fetch('products.json?v=' + Date.now());
+    if (!res.ok) throw new Error('products.json not reachable');
+    const data = await res.json();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (err) {
+    console.warn('Failed to fetch products.json:', err);
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(FALLBACK_PRODUCTS));
+    }
+  }
+}
+
 function getProducts() {
   const stored = localStorage.getItem(STORAGE_KEY);
   return stored ? JSON.parse(stored) : [];
 }
 
-function saveProducts(products) {
+function saveProductsLocal(products) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
-}
-
-// Seeds localStorage from products.json on first visit, so the JSON file is
-// the real source of starting data instead of a duplicate hardcoded list.
-// If products already exist (visitor returned, or admin has added/edited
-// items), the stored data is left untouched.
-async function loadProducts() {
-  if (localStorage.getItem(STORAGE_KEY)) return;
-
-  try {
-    const res = await fetch('products.json');
-    if (!res.ok) throw new Error('products.json not reachable');
-    const data = await res.json();
-    saveProducts(data);
-  } catch (err) {
-    // Fetching a local JSON file fails when the page is opened directly
-    // from disk (file://) instead of via a web server — fall back safely.
-    saveProducts(FALLBACK_PRODUCTS);
-  }
 }
 
 // ========== Visitor Page: Display ==========
@@ -158,8 +171,6 @@ function whatsappLink(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-// Fills in every element with data-whatsapp-link (footer, floating button)
-// so the number only has to be maintained in one place.
 function wireWhatsappLinks() {
   document.querySelectorAll('[data-whatsapp-link]').forEach(el => {
     el.href = whatsappLink('مرحباً الطراز الأصيل، أرغب بالاستفسار عن منتجاتكم');
@@ -169,41 +180,112 @@ function wireWhatsappLinks() {
   });
 }
 
-// ========== Admin: Add / Update Product ==========
-function addProduct(e) {
+// ========== Admin: Add / Update / Delete Product ==========
+function _addProductLocal(name, price, category, description) {
+  const products = getProducts();
+  const image = currentImageData || DEFAULT_IMAGE;
+
+  if (editingId !== null) {
+    const idx = products.findIndex(p => p.id === editingId);
+    if (idx !== -1) {
+      products[idx] = { ...products[idx], name, price, category, description, image };
+    }
+    try {
+      saveProductsLocal(products);
+    } catch (err) {
+      showToast('❌ الصورة كبيرة جداً على مساحة التخزين، جرّب صورة أصغر');
+      return false;
+    }
+    showToast('✅ تم تحديث المنتج بنجاح (محلي فقط)');
+    cancelEdit();
+  } else {
+    const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+    products.push({ id: newId, name, price, category, description, image });
+    try {
+      saveProductsLocal(products);
+    } catch (err) {
+      products.pop();
+      showToast('❌ الصورة كبيرة جداً على مساحة التخزين، جرّب صورة أصغر');
+      return false;
+    }
+    document.getElementById('addForm').reset();
+    removeImageFile();
+    showToast('✅ تم إضافة المنتج بنجاح (محلي فقط)');
+  }
+  renderAdminTable();
+  return false;
+}
+
+async function addProduct(e) {
   e.preventDefault();
+  if (isPublishing) return false;
 
   const name = document.getElementById('pName').value.trim();
   const price = document.getElementById('pPrice').value.trim();
   const category = document.getElementById('pCategory').value;
   const description = document.getElementById('pDesc').value.trim();
-  const image = document.getElementById('pImage').value.trim();
 
   if (!name || !price || !category) {
     showToast('❌ يرجى ملء جميع الحقول المطلوبة');
     return false;
   }
 
-  const products = getProducts();
-
-  if (editingId !== null) {
-    const idx = products.findIndex(p => p.id === editingId);
-    if (idx !== -1) {
-      products[idx] = { ...products[idx], name, price, category, description, image: image || DEFAULT_IMAGE };
-    }
-    saveProducts(products);
-    showToast('✅ تم تحديث المنتج بنجاح');
-    cancelEdit();
-  } else {
-    const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-    products.push({ id: newId, name, price, category, description, image: image || DEFAULT_IMAGE });
-    saveProducts(products);
-    document.getElementById('addForm').reset();
-    hideImagePreview();
-    showToast('✅ تم إضافة المنتج بنجاح');
+  if (!API_BASE) {
+    return _addProductLocal(name, price, category, description);
   }
 
-  renderAdminTable();
+  isPublishing = true;
+  const submitBtn = document.getElementById('submitBtn');
+  if (submitBtn) submitBtn.disabled = true;
+
+  showToast('⏳ جاري النشر...');
+
+  try {
+    let imageUrl = currentImageData;
+
+    if (currentImageData && currentImageData.startsWith('data:image')) {
+      showToast('📤 جاري رفع الصورة...');
+      const uploadRes = await apiRequest('/api/upload-image', {
+        image: currentImageData,
+        filename: `product_${Date.now()}_${Math.random().toString(36).substr(2, 5)}.jpg`
+      });
+      imageUrl = uploadRes.url;
+    } else if (!currentImageData) {
+      imageUrl = DEFAULT_IMAGE;
+    }
+
+    let products = getProducts();
+
+    if (editingId !== null) {
+      const idx = products.findIndex(p => p.id === editingId);
+      if (idx !== -1) {
+        products[idx] = { ...products[idx], name, price, category, description, image: imageUrl };
+      }
+    } else {
+      const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+      products.push({ id: newId, name, price, category, description, image: imageUrl });
+    }
+
+    showToast('📝 جاري حفظ التغييرات على GitHub...');
+    await apiRequest('/api/publish-products', { products });
+
+    saveProductsLocal(products);
+
+    showToast('✅ تم النشر بنجاح! قد يستغرق 30–90 ثانية ليظهر للزوار.');
+
+    document.getElementById('addForm').reset();
+    removeImageFile();
+    if (editingId !== null) cancelEdit();
+    renderAdminTable();
+
+  } catch (err) {
+    showToast('❌ فشل النشر: ' + err.message);
+    console.error(err);
+  } finally {
+    isPublishing = false;
+    if (submitBtn) submitBtn.disabled = false;
+  }
+
   return false;
 }
 
@@ -217,8 +299,16 @@ function startEdit(id) {
   document.getElementById('pPrice').value = p.price;
   document.getElementById('pCategory').value = p.category;
   document.getElementById('pDesc').value = p.description || '';
-  document.getElementById('pImage').value = p.image || '';
-  updateImagePreview();
+  currentImageData = p.image || '';
+  const preview = document.getElementById('imagePreview');
+  const removeBtn = document.getElementById('removeImageBtn');
+  if (currentImageData && preview) {
+    preview.src = currentImageData;
+    preview.style.display = 'block';
+    if (removeBtn) removeBtn.style.display = 'inline-flex';
+  } else {
+    hideImagePreview();
+  }
 
   document.getElementById('formTitle').textContent = '✏️ تعديل المنتج';
   document.getElementById('submitBtn').textContent = '💾 تحديث المنتج';
@@ -229,22 +319,44 @@ function startEdit(id) {
 function cancelEdit() {
   editingId = null;
   document.getElementById('addForm').reset();
-  hideImagePreview();
+  removeImageFile();
   document.getElementById('formTitle').textContent = '➕ إضافة منتج جديد';
   document.getElementById('submitBtn').textContent = '💾 حفظ المنتج';
   document.getElementById('cancelEditBtn').style.display = 'none';
 }
 
-// ========== Admin: Delete Product ==========
-function deleteProduct(id) {
+async function deleteProduct(id) {
   if (!confirm('هل أنت متأكد من حذف هذا المنتج؟')) return;
 
-  let products = getProducts();
-  products = products.filter(p => p.id !== id);
-  saveProducts(products);
-  if (editingId === id) cancelEdit();
-  renderAdminTable();
-  showToast('🗑️ تم حذف المنتج');
+  if (!API_BASE) {
+    let products = getProducts();
+    products = products.filter(p => p.id !== id);
+    saveProductsLocal(products);
+    if (editingId === id) cancelEdit();
+    renderAdminTable();
+    showToast('🗑️ تم حذف المنتج');
+    return;
+  }
+
+  isPublishing = true;
+  showToast('⏳ جاري الحذف...');
+
+  try {
+    let products = getProducts();
+    products = products.filter(p => p.id !== id);
+
+    showToast('📝 جاري حفظ التغييرات على GitHub...');
+    await apiRequest('/api/publish-products', { products });
+
+    saveProductsLocal(products);
+    if (editingId === id) cancelEdit();
+    renderAdminTable();
+    showToast('🗑️ تم حذف المنتج ونشر التغييرات');
+  } catch (err) {
+    showToast('❌ فشل الحذف: ' + err.message);
+  } finally {
+    isPublishing = false;
+  }
 }
 
 // ========== Admin: Render Table ==========
@@ -284,23 +396,65 @@ function renderAdminTable(searchTerm) {
   `).join('');
 }
 
-// ========== Admin: Image Preview ==========
-function updateImagePreview() {
-  const url = document.getElementById('pImage').value.trim();
-  const preview = document.getElementById('imagePreview');
-  if (!preview) return;
-  if (url) {
-    preview.src = url;
-    preview.style.display = 'block';
-    preview.onerror = () => hideImagePreview();
-  } else {
-    hideImagePreview();
+// ========== Admin: Image Upload ==========
+function handleImageFile(event) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith('image/')) {
+    showToast('❌ الملف المختار ليس صورة');
+    event.target.value = '';
+    return;
   }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const MAX_DIM = 900;
+      let { width, height } = img;
+      if (width > MAX_DIM || height > MAX_DIM) {
+        if (width > height) {
+          height = Math.round(height * (MAX_DIM / width));
+          width = MAX_DIM;
+        } else {
+          width = Math.round(width * (MAX_DIM / height));
+          height = MAX_DIM;
+        }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+      currentImageData = canvas.toDataURL('image/jpeg', 0.75);
+
+      const preview = document.getElementById('imagePreview');
+      const removeBtn = document.getElementById('removeImageBtn');
+      if (preview) {
+        preview.src = currentImageData;
+        preview.style.display = 'block';
+      }
+      if (removeBtn) removeBtn.style.display = 'inline-flex';
+    };
+    img.onerror = () => showToast('❌ تعذّرت قراءة الصورة، جرّب صورة أخرى');
+    img.src = e.target.result;
+  };
+  reader.onerror = () => showToast('❌ تعذّرت قراءة الصورة، جرّب صورة أخرى');
+  reader.readAsDataURL(file);
+}
+
+function removeImageFile() {
+  currentImageData = '';
+  const fileInput = document.getElementById('pImageFile');
+  if (fileInput) fileInput.value = '';
+  hideImagePreview();
 }
 
 function hideImagePreview() {
   const preview = document.getElementById('imagePreview');
-  if (preview) preview.style.display = 'none';
+  const removeBtn = document.getElementById('removeImageBtn');
+  if (preview) { preview.style.display = 'none'; preview.src = ''; }
+  if (removeBtn) removeBtn.style.display = 'none';
 }
 
 // ========== Utilities ==========
@@ -316,5 +470,6 @@ function showToast(message) {
   if (!toast) return;
   toast.textContent = message;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3000);
+  setTimeout(() => toast.classList.remove('show'), 4000);
 }
+
