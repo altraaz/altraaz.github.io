@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة الإدارة | الطراز الأصيل</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body class="admin-body">
+  <!-- Login Overlay -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-box">
+      <div class="logo-icon" style="margin:0 auto 1rem; width:60px; height:60px; font-size:2rem;">🏛️</div>
+      <h2>الطراز الأصيل</h2>
+      <p>لوحة إدارة المنتجات</p>
+      <div class="form-group">
+        <input type="password" id="adminPass" placeholder="أدخل كلمة المرور..." style="text-align:center;">
+      </div>
+      <button class="btn-primary" onclick="checkLogin()" style="width:100%; justify-content:center;">دخول</button>
+      <p class="login-hint" style="margin-top:1rem;">تنبيه: هذه الحماية أساسية من جهة المتصفح فقط، ولا تُستخدم لحفظ بيانات حساسة.</p>
+    </div>
+  </div>
+
+  <!-- Admin Header -->
+  <header class="admin-header">
+    <h1>🏛️ لوحة إدارة الطراز الأصيل</h1>
+    <a href="index.html" class="back-link">← العودة للموقع</a>
+  </header>
+
+  <div class="admin-container">
+    <!-- Add / Edit Product Form -->
+    <div class="admin-card">
+      <h2 id="formTitle">➕ إضافة منتج جديد</h2>
+      <form id="addForm" onsubmit="return addProduct(event)">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+          <div class="form-group">
+            <label>اسم المنتج *</label>
+            <input type="text" id="pName" required placeholder="مثال: سجاد تركي فاخر">
+          </div>
+          <div class="form-group">
+            <label>السعر *</label>
+            <input type="text" id="pPrice" required placeholder="مثال: 205 د.ك">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>القسم *</label>
+          <select id="pCategory" required>
+            <option value="">اختر القسم...</option>
+            <option value="sajad">🧶 سجاد</option>
+            <option value="majlis">🛋️ مجالس</option>
+            <option value="kanab">🪑 كنب</option>
+            <option value="sitar">🪟 ستائر</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>وصف المنتج</label>
+          <textarea id="pDesc" placeholder="اكتب وصفاً مختصراً للمنتج..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>صورة المنتج</label>
+          <input type="file" id="pImageFile" accept="image/*" capture="environment" onchange="handleImageFile(event)">
+          <small style="color:var(--text-light); font-size:0.8rem;">التقط صورة بالكاميرا أو اختر صورة من الهاتف — إذا تركته فارغاً ستُستخدم صورة افتراضية</small>
+          <img id="imagePreview" class="image-preview" alt="معاينة الصورة">
+          <button type="button" class="btn-secondary" id="removeImageBtn" style="display:none; margin-top:0.5rem;" onclick="removeImageFile()">🗑️ إزالة الصورة</button>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="submitBtn">💾 حفظ المنتج</button>
+          <button type="button" class="btn-secondary" id="cancelEditBtn" style="display:none;" onclick="cancelEdit()">إلغاء التعديل</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Products List -->
+    <div class="admin-card">
+      <div class="admin-table-header">
+        <h2 style="margin-bottom:0;">📋 قائمة المنتجات <span class="section-count" id="adminCount"></span></h2>
+        <input type="search" class="admin-table-search" placeholder="بحث بالاسم..." oninput="renderAdminTable(this.value)" aria-label="بحث في قائمة المنتجات">
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>الصورة</th>
+              <th>الاسم</th>
+              <th>القسم</th>
+              <th>السعر</th>
+              <th>إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <!-- Filled by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="empty-state" id="adminEmpty" style="display:none; padding:2rem;">
+        <div class="icon" style="font-size:3rem;">📭</div>
+        <p>لا توجد منتجات مضافة بعد</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadProducts();
+      renderAdminTable();
+    });
+
+    function checkLogin() {
+      const pass = document.getElementById('adminPass').value;
+      if (pass === 'qq66462190') {
+        document.getElementById('loginOverlay').style.display = 'none';
+        sessionStorage.setItem('adminLogged', 'true');
+        sessionStorage.setItem('adminPass', pass); // ← للاستخدام في طلبات API
+      } else {
+        showToast('❌ كلمة المرور غير صحيحة');
+      }
+    }
+
+    // Check if already logged in
+    if (sessionStorage.getItem('adminLogged') === 'true') {
+      document.getElementById('loginOverlay').style.display = 'none';
+    }
+
+    // Allow Enter key
+    document.getElementById('adminPass')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') checkLogin();
+    });
+  </script>
+</body>
+</html>
+
