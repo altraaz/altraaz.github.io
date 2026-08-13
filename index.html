@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="الطراز الأصيل - سجاد فاخر، مجالس عربية، كنب مودرن، وستائر مخمل بأصالة تراثية.">
+  <title>الطراز الأصيل | مفروشات فاخرة</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🏛️</div>
+        <div>
+          <div class="logo-text">الطراز الأصيل</div>
+          <span class="logo-sub">مفروشات فاخرة بأصالة تراثية</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="admin.html">⚙️ الإدارة</a>
+      </nav>
+    </div>
+  </header>
+  <div class="pattern-divider"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>أصالة الطراز في كل تفصيلة</h1>
+    <p>سجاد فاخر · مجالس عربية · كنب مودرن · ستائر مخمل</p>
+  </section>
+
+  <!-- Categories -->
+  <div class="categories-bar">
+    <button class="cat-btn active" data-cat="all" onclick="filterProducts('all')">
+      <span class="icon">🏠</span> الكل
+    </button>
+    <button class="cat-btn" data-cat="sajad" onclick="filterProducts('sajad')">
+      <span class="icon">🧶</span> سجاد
+    </button>
+    <button class="cat-btn" data-cat="majlis" onclick="filterProducts('majlis')">
+      <span class="icon">🛋️</span> مجالس
+    </button>
+    <button class="cat-btn" data-cat="kanab" onclick="filterProducts('kanab')">
+      <span class="icon">🪑</span> كنب
+    </button>
+    <button class="cat-btn" data-cat="sitar" onclick="filterProducts('sitar')">
+      <span class="icon">🪟</span> ستائر
+    </button>
+  </div>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <input
+      type="search"
+      class="search-input"
+      placeholder="ابحث عن منتج بالاسم أو الوصف..."
+      oninput="searchProducts(this.value)"
+      aria-label="بحث عن منتج"
+    >
+  </div>
+
+  <!-- Products -->
+  <div class="container">
+    <div class="section-title-row">
+      <h2 class="section-title" id="sectionTitle">جميع المنتجات</h2>
+      <span class="section-count" id="sectionCount"></span>
+    </div>
+    <p class="section-subtitle">اختر ما يناسب ذوقك واطلبه مباشرة عبر واتساب</p>
+    <div class="products-grid" id="productsGrid">
+      <!-- Products loaded by JS -->
+    </div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="icon">📦</div>
+      <h3>لا توجد منتجات مطابقة</h3>
+      <p>جرّب كلمة بحث أخرى أو اختر قسماً مختلفاً</p>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp -->
+  <a href="#" target="_blank" rel="noopener" class="whatsapp-float" data-whatsapp-link aria-label="تواصل معنا عبر واتساب">📱</a>
+
+  <!-- Footer -->
+  <div class="pattern-divider"></div>
+  <footer class="footer">
+    <p>© 2026 الطراز الأصيل — جميع الحقوق محفوظة</p>
+    <p style="margin-top:5px; font-size:0.8rem;">للطلب والاستفسار: <a href="#" target="_blank" rel="noopener" data-whatsapp-link>واتساب</a></p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadProducts();
+      wireWhatsappLinks();
+      filterProducts('all');
+    });
+  </script>
+</body>
+</html>
