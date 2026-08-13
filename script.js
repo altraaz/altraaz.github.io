@@ -3,8 +3,6 @@ const WHATSAPP_NUMBER = '96566462190';
 const CALL_NUMBER = '+96566462190';
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400';
 const STORAGE_KEY = 'ta_products';
-
-// ✅ رابط الـ Worker — تم ضبطه
 const API_BASE = 'https://altraaz-api.altraaz.workers.dev';
 
 const CATEGORY_LABELS = {
@@ -59,7 +57,7 @@ const FALLBACK_PRODUCTS = [
 let currentCategory = 'all';
 let currentSearch = '';
 let editingId = null;
-let currentImageData = '';
+let currentImages = [];
 let isPublishing = false;
 
 // ========== API Helpers ==========
@@ -86,7 +84,13 @@ async function loadProducts() {
     const res = await fetch('products.json?v=' + Date.now());
     if (!res.ok) throw new Error('products.json not reachable');
     const data = await res.json();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    const migrated = data.map(p => {
+      if (typeof p.image === 'string' && (!p.images || !Array.isArray(p.images))) {
+        return { ...p, images: [p.image] };
+      }
+      return p;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
   } catch (err) {
     console.warn('Failed to fetch products.json:', err);
     if (!localStorage.getItem(STORAGE_KEY)) {
@@ -148,9 +152,18 @@ function renderStorefront() {
   grid.style.display = 'grid';
   empty.style.display = 'none';
 
-  grid.innerHTML = filtered.map(p => `
+  grid.innerHTML = filtered.map(p => {
+    const mainImage = p.images && p.images.length > 0 ? p.images[0] : (p.image || DEFAULT_IMAGE);
+    const gallery = p.images && p.images.length > 1 ? p.images.slice(1) : [];
+    const galleryHtml = gallery.length > 0 ? `
+      <div class="product-gallery">
+        ${gallery.map((img) => `<img src="${img}" alt="" class="product-gallery-thumb" loading="lazy" onclick="this.closest('.product-card').querySelector('.product-img').src='${img}'">`).join('')}
+      </div>
+    ` : '';
+    return `
     <div class="product-card">
-      <img src="${p.image || DEFAULT_IMAGE}" alt="${escapeHtml(p.name)}" class="product-img" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
+      <img src="${mainImage}" alt="${escapeHtml(p.name)}" class="product-img" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
+      ${galleryHtml}
       <div class="product-body">
         <span class="product-category">${CATEGORY_ICONS[p.category] || '📦'} ${CATEGORY_LABELS[p.category] || p.category}</span>
         <h3 class="product-name">${escapeHtml(p.name)}</h3>
@@ -164,7 +177,7 @@ function renderStorefront() {
         </div>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 function whatsappLink(message) {
@@ -181,41 +194,6 @@ function wireWhatsappLinks() {
 }
 
 // ========== Admin: Add / Update / Delete Product ==========
-function _addProductLocal(name, price, category, description) {
-  const products = getProducts();
-  const image = currentImageData || DEFAULT_IMAGE;
-
-  if (editingId !== null) {
-    const idx = products.findIndex(p => p.id === editingId);
-    if (idx !== -1) {
-      products[idx] = { ...products[idx], name, price, category, description, image };
-    }
-    try {
-      saveProductsLocal(products);
-    } catch (err) {
-      showToast('❌ الصورة كبيرة جداً على مساحة التخزين، جرّب صورة أصغر');
-      return false;
-    }
-    showToast('✅ تم تحديث المنتج بنجاح (محلي فقط)');
-    cancelEdit();
-  } else {
-    const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-    products.push({ id: newId, name, price, category, description, image });
-    try {
-      saveProductsLocal(products);
-    } catch (err) {
-      products.pop();
-      showToast('❌ الصورة كبيرة جداً على مساحة التخزين، جرّب صورة أصغر');
-      return false;
-    }
-    document.getElementById('addForm').reset();
-    removeImageFile();
-    showToast('✅ تم إضافة المنتج بنجاح (محلي فقط)');
-  }
-  renderAdminTable();
-  return false;
-}
-
 async function addProduct(e) {
   e.preventDefault();
   if (isPublishing) return false;
@@ -230,10 +208,6 @@ async function addProduct(e) {
     return false;
   }
 
-  if (!API_BASE) {
-    return _addProductLocal(name, price, category, description);
-  }
-
   isPublishing = true;
   const submitBtn = document.getElementById('submitBtn');
   if (submitBtn) submitBtn.disabled = true;
@@ -241,40 +215,42 @@ async function addProduct(e) {
   showToast('⏳ جاري النشر...');
 
   try {
-    let imageUrl = currentImageData;
+    let imageUrls = [];
+    const newImages = currentImages.filter(img => img.startsWith('data:image'));
+    const existingImages = currentImages.filter(img => !img.startsWith('data:image'));
 
-    if (currentImageData && currentImageData.startsWith('data:image')) {
-      showToast('📤 جاري رفع الصورة...');
+    for (let i = 0; i < newImages.length; i++) {
+      showToast(`📤 جاري رفع الصورة ${i + 1} من ${newImages.length}...`);
       const uploadRes = await apiRequest('/api/upload-image', {
-        image: currentImageData,
-        filename: `product_${Date.now()}_${Math.random().toString(36).substr(2, 5)}.jpg`
+        image: newImages[i],
+        filename: `product_${Date.now()}_${i}_${Math.random().toString(36).substr(2, 5)}.jpg`
       });
-      imageUrl = uploadRes.url;
-    } else if (!currentImageData) {
-      imageUrl = DEFAULT_IMAGE;
+      imageUrls.push(uploadRes.url);
     }
+
+    imageUrls = [...existingImages, ...imageUrls];
+    if (imageUrls.length === 0) imageUrls = [DEFAULT_IMAGE];
 
     let products = getProducts();
 
     if (editingId !== null) {
       const idx = products.findIndex(p => p.id === editingId);
       if (idx !== -1) {
-        products[idx] = { ...products[idx], name, price, category, description, image: imageUrl };
+        products[idx] = { ...products[idx], name, price, category, description, image: imageUrls[0], images: imageUrls };
       }
     } else {
       const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-      products.push({ id: newId, name, price, category, description, image: imageUrl });
+      products.push({ id: newId, name, price, category, description, image: imageUrls[0], images: imageUrls });
     }
 
     showToast('📝 جاري حفظ التغييرات على GitHub...');
     await apiRequest('/api/publish-products', { products });
 
     saveProductsLocal(products);
-
     showToast('✅ تم النشر بنجاح! قد يستغرق 30–90 ثانية ليظهر للزوار.');
 
     document.getElementById('addForm').reset();
-    removeImageFile();
+    removeAllImages();
     if (editingId !== null) cancelEdit();
     renderAdminTable();
 
@@ -299,16 +275,8 @@ function startEdit(id) {
   document.getElementById('pPrice').value = p.price;
   document.getElementById('pCategory').value = p.category;
   document.getElementById('pDesc').value = p.description || '';
-  currentImageData = p.image || '';
-  const preview = document.getElementById('imagePreview');
-  const removeBtn = document.getElementById('removeImageBtn');
-  if (currentImageData && preview) {
-    preview.src = currentImageData;
-    preview.style.display = 'block';
-    if (removeBtn) removeBtn.style.display = 'inline-flex';
-  } else {
-    hideImagePreview();
-  }
+  currentImages = p.images || [p.image];
+  renderImagePreviews();
 
   document.getElementById('formTitle').textContent = '✏️ تعديل المنتج';
   document.getElementById('submitBtn').textContent = '💾 تحديث المنتج';
@@ -319,7 +287,7 @@ function startEdit(id) {
 function cancelEdit() {
   editingId = null;
   document.getElementById('addForm').reset();
-  removeImageFile();
+  removeAllImages();
   document.getElementById('formTitle').textContent = '➕ إضافة منتج جديد';
   document.getElementById('submitBtn').textContent = '💾 حفظ المنتج';
   document.getElementById('cancelEditBtn').style.display = 'none';
@@ -327,16 +295,6 @@ function cancelEdit() {
 
 async function deleteProduct(id) {
   if (!confirm('هل أنت متأكد من حذف هذا المنتج؟')) return;
-
-  if (!API_BASE) {
-    let products = getProducts();
-    products = products.filter(p => p.id !== id);
-    saveProductsLocal(products);
-    if (editingId === id) cancelEdit();
-    renderAdminTable();
-    showToast('🗑️ تم حذف المنتج');
-    return;
-  }
 
   isPublishing = true;
   showToast('⏳ جاري الحذف...');
@@ -381,10 +339,14 @@ function renderAdminTable(searchTerm) {
   }
 
   empty.style.display = 'none';
-  tbody.innerHTML = products.map(p => `
+  tbody.innerHTML = products.map(p => {
+    const imgs = p.images || [p.image];
+    const thumbs = imgs.slice(0, 3).map(url => `<img src="${url}" alt="" onerror="this.src='${DEFAULT_IMAGE}'">`).join('');
+    const more = imgs.length > 3 ? `<span style="color:var(--admin-accent); font-size:0.75rem;">+${imgs.length - 3}</span>` : '';
+    return `
     <tr>
       <td>${p.id}</td>
-      <td><img src="${p.image || DEFAULT_IMAGE}" alt="" onerror="this.src='${DEFAULT_IMAGE}'"></td>
+      <td><div class="admin-thumb-grid">${thumbs}${more}</div></td>
       <td><strong>${escapeHtml(p.name)}</strong></td>
       <td>${CATEGORY_LABELS[p.category] || p.category}</td>
       <td>${escapeHtml(p.price)}</td>
@@ -393,68 +355,86 @@ function renderAdminTable(searchTerm) {
         <button class="btn-danger" onclick="deleteProduct(${p.id})">🗑️ حذف</button>
       </td>
     </tr>
-  `).join('');
+  `}).join('');
 }
 
-// ========== Admin: Image Upload ==========
+// ========== Admin: Image Upload (Multiple) ==========
 function handleImageFile(event) {
-  const file = event.target.files && event.target.files[0];
-  if (!file) return;
+  const files = Array.from(event.target.files || []);
+  if (files.length === 0) return;
 
-  if (!file.type.startsWith('image/')) {
-    showToast('❌ الملف المختار ليس صورة');
-    event.target.value = '';
+  let processed = 0;
+  files.forEach(file => {
+    if (!file.type.startsWith('image/')) {
+      showToast('❌ ملف غير صالح: ' + file.name);
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const MAX_DIM = 900;
+        let { width, height } = img;
+        if (width > MAX_DIM || height > MAX_DIM) {
+          if (width > height) {
+            height = Math.round(height * (MAX_DIM / width));
+            width = MAX_DIM;
+          } else {
+            width = Math.round(width * (MAX_DIM / height));
+            height = MAX_DIM;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+        currentImages.push(canvas.toDataURL('image/jpeg', 0.75));
+        processed++;
+        if (processed === files.length) {
+          renderImagePreviews();
+        }
+      };
+      img.onerror = () => showToast('❌ تعذّرت قراءة: ' + file.name);
+      img.src = e.target.result;
+    };
+    reader.onerror = () => showToast('❌ تعذّرت قراءة: ' + file.name);
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderImagePreviews() {
+  const container = document.getElementById('imagePreviews');
+  const removeBtn = document.getElementById('removeImagesBtn');
+  if (!container) return;
+
+  if (currentImages.length === 0) {
+    container.innerHTML = '';
+    if (removeBtn) removeBtn.style.display = 'none';
     return;
   }
 
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    const img = new Image();
-    img.onload = () => {
-      const MAX_DIM = 900;
-      let { width, height } = img;
-      if (width > MAX_DIM || height > MAX_DIM) {
-        if (width > height) {
-          height = Math.round(height * (MAX_DIM / width));
-          width = MAX_DIM;
-        } else {
-          width = Math.round(width * (MAX_DIM / height));
-          height = MAX_DIM;
-        }
-      }
-      const canvas = document.createElement('canvas');
-      canvas.width = width;
-      canvas.height = height;
-      canvas.getContext('2d').drawImage(img, 0, 0, width, height);
-      currentImageData = canvas.toDataURL('image/jpeg', 0.75);
+  container.innerHTML = currentImages.map((src, i) => `
+    <div class="preview-item">
+      <img src="${src}" alt="صورة ${i + 1}">
+      <button type="button" class="preview-remove" onclick="removeImageAt(${i})">×</button>
+      ${i === 0 ? '<span class="preview-badge">رئيسية</span>' : ''}
+    </div>
+  `).join('');
 
-      const preview = document.getElementById('imagePreview');
-      const removeBtn = document.getElementById('removeImageBtn');
-      if (preview) {
-        preview.src = currentImageData;
-        preview.style.display = 'block';
-      }
-      if (removeBtn) removeBtn.style.display = 'inline-flex';
-    };
-    img.onerror = () => showToast('❌ تعذّرت قراءة الصورة، جرّب صورة أخرى');
-    img.src = e.target.result;
-  };
-  reader.onerror = () => showToast('❌ تعذّرت قراءة الصورة، جرّب صورة أخرى');
-  reader.readAsDataURL(file);
+  if (removeBtn) removeBtn.style.display = 'inline-flex';
 }
 
-function removeImageFile() {
-  currentImageData = '';
+function removeImageAt(index) {
+  currentImages.splice(index, 1);
+  renderImagePreviews();
+}
+
+function removeAllImages() {
+  currentImages = [];
   const fileInput = document.getElementById('pImageFile');
   if (fileInput) fileInput.value = '';
-  hideImagePreview();
-}
-
-function hideImagePreview() {
-  const preview = document.getElementById('imagePreview');
-  const removeBtn = document.getElementById('removeImageBtn');
-  if (preview) { preview.style.display = 'none'; preview.src = ''; }
-  if (removeBtn) removeBtn.style.display = 'none';
+  renderImagePreviews();
 }
 
 // ========== Utilities ==========
@@ -472,4 +452,3 @@ function showToast(message) {
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 4000);
 }
-
