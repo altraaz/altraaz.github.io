@@ -1,37 +1,31 @@
 /* ==========================================================================
    الطراز الأصيل - AL-TIRAZ AL-ASEEL
-   Palette & type system adapted from a Gemini design pass, remapped onto
-   the real class/id names used by index.html, admin.html and script.js.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  /* Palette */
-  --bg: #F8F5F0;                /* كتان عاجي */
+  --bg: #F8F5F0;
   --bg-card: #FFFFFF;
-  --primary: #C48B47;           /* نحاسي أثري */
+  --primary: #C48B47;
   --primary-light: #D9A968;
-  --primary-dark: #2C141D;      /* عنابي دافئ عميق */
+  --primary-dark: #2C141D;
   --accent-terracotta: #D97757;
-  --text: #1E232A;              /* رمادي فاحم دافئ */
+  --text: #1E232A;
   --text-light: #8C857B;
   --border: #EFECE6;
   --whatsapp: #25D366;
   --whatsapp-hover: #1EBE5A;
 
-  /* Admin (dark ERP-style) */
   --admin-bg: #1A1F26;
   --admin-card: #242B35;
   --admin-text: #E2E8F0;
   --admin-border: #333D4B;
   --admin-accent: #C48B47;
 
-  /* Fonts */
   --font-head: 'Cairo', sans-serif;
   --font-body: 'Cairo', sans-serif;
 
-  /* Effects */
   --shadow: 0 8px 24px rgba(44, 20, 29, 0.08);
   --shadow-hover: 0 16px 32px rgba(44, 20, 29, 0.14);
   --radius: 14px;
@@ -57,7 +51,6 @@ a { color: inherit; text-decoration: none; }
   outline-offset: 2px;
 }
 
-/* ===== Signature heritage-stripe divider ===== */
 .pattern-divider {
   height: 5px;
   background: repeating-linear-gradient(
@@ -396,38 +389,67 @@ a { color: inherit; text-decoration: none; }
   transform: scale(1.05);
 }
 
-/* ===== Floating WhatsApp + Call buttons ===== */
-.float-actions {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
+/* ===== Product Gallery (Visitor) ===== */
+.product-gallery {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 900;
+  gap: 6px;
+  padding: 0 1.4rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  overflow-x: auto;
 }
 
-.whatsapp-float,
-.call-float {
-  background: var(--whatsapp);
-  color: #fff;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
+.product-gallery-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.product-gallery-thumb:hover {
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+/* ===== Permanent bottom action bar ===== */
+body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  z-index: 1000;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.18);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.bottom-bar-btn {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  gap: 8px;
+  height: 64px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
   transition: var(--transition);
 }
 
-.call-float {
-  background: var(--primary-dark);
-}
+.bottom-bar-icon { font-size: 1.3rem; }
 
-.whatsapp-float:hover,
-.call-float:hover { transform: scale(1.08); }
+.bottom-bar-whatsapp { background: var(--whatsapp); }
+.bottom-bar-call { background: var(--primary-dark); }
+
+.bottom-bar-whatsapp:hover { background: var(--whatsapp-hover); }
+.bottom-bar-call:active,
+.bottom-bar-whatsapp:active { filter: brightness(0.92); }
 
 /* ===== Empty State ===== */
 .empty-state {
@@ -454,7 +476,7 @@ a { color: inherit; text-decoration: none; }
 
 .footer a { color: var(--primary); }
 
-/* ===== Admin Page (dark ERP-style, deliberately distinct from storefront) ===== */
+/* ===== Admin Page ===== */
 .admin-body {
   background: var(--admin-bg);
   color: var(--admin-text);
@@ -511,16 +533,6 @@ a { color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
-.admin-note {
-  background: rgba(196,139,71,0.1);
-  border: 1px solid rgba(196,139,71,0.3);
-  color: var(--admin-text);
-  font-size: 0.82rem;
-  padding: 10px 14px;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
-
 .form-group { margin-bottom: 1.2rem; }
 
 .form-group label {
@@ -556,14 +568,58 @@ a { color: inherit; text-decoration: none; }
 
 .form-group small { color: var(--text-light); }
 
-.image-preview {
+.image-previews-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 10px;
+}
+
+.preview-item {
+  position: relative;
   width: 80px;
   height: 80px;
   border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--admin-border);
+}
+
+.preview-item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 1px solid var(--admin-border);
-  display: none;
+  display: block;
+}
+
+.preview-remove {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 22px;
+  height: 22px;
+  background: #EF4444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--admin-accent);
+  color: var(--primary-dark);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 2px 0;
 }
 
 .form-actions { display: flex; gap: 10px; }
@@ -686,11 +742,18 @@ a { color: inherit; text-decoration: none; }
 
 .admin-table td { font-size: 0.9rem; color: var(--admin-text); }
 
-.admin-table img {
-  width: 50px;
-  height: 50px;
+.admin-thumb-grid {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.admin-thumb-grid img {
+  width: 40px;
+  height: 40px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--admin-border);
 }
 
 /* Login Overlay */
