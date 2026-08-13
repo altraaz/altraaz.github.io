@@ -59,11 +59,11 @@
           <textarea id="pDesc" placeholder="اكتب وصفاً مختصراً للمنتج..."></textarea>
         </div>
         <div class="form-group">
-          <label>صورة المنتج</label>
-          <input type="file" id="pImageFile" accept="image/*" capture="environment" onchange="handleImageFile(event)">
-          <small style="color:var(--text-light); font-size:0.8rem;">التقط صورة بالكاميرا أو اختر صورة من الهاتف — إذا تركته فارغاً ستُستخدم صورة افتراضية</small>
-          <img id="imagePreview" class="image-preview" alt="معاينة الصورة">
-          <button type="button" class="btn-secondary" id="removeImageBtn" style="display:none; margin-top:0.5rem;" onclick="removeImageFile()">🗑️ إزالة الصورة</button>
+          <label>صور المنتج (يمكن اختيار عدة صور)</label>
+          <input type="file" id="pImageFile" accept="image/*" multiple onchange="handleImageFile(event)">
+          <small style="color:var(--text-light); font-size:0.8rem;">اختر صورة أو عدة صور — الصورة الأولى هي الرئيسية</small>
+          <div id="imagePreviews" class="image-previews-grid"></div>
+          <button type="button" class="btn-secondary" id="removeImagesBtn" style="display:none; margin-top:0.5rem;" onclick="removeAllImages()">🗑️ إزالة جميع الصور</button>
         </div>
         <div class="form-actions">
           <button type="submit" class="btn-primary" id="submitBtn">💾 حفظ المنتج</button>
@@ -83,7 +83,7 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>الصورة</th>
+              <th>الصور</th>
               <th>الاسم</th>
               <th>القسم</th>
               <th>السعر</th>
