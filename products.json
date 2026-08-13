@@ -10,5 +10,16 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662527343_0_0ll48.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662530990_1_babs8.jpg"
     ]
+  },
+  {
+    "id": 6,
+    "name": "كنب قنفه مودرن",
+    "price": "35",
+    "category": "kanab",
+    "description": "كنب مودرن مميز \nاسفنج البغلي \nخام تركي",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662736979_0_6wcy4.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662736979_0_6wcy4.jpg"
+    ]
   }
 ]
