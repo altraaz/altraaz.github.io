@@ -21,7 +21,6 @@
       </a>
       <nav class="nav-links">
         <a href="index.html" class="active">الرئيسية</a>
-        <a href="admin.html">⚙️ الإدارة</a>
       </nav>
     </div>
   </header>
@@ -80,10 +79,14 @@
     </div>
   </div>
 
-  <!-- Floating WhatsApp + Call -->
-  <div class="float-actions">
-    <a href="#" target="_blank" rel="noopener" class="whatsapp-float" data-whatsapp-link aria-label="تواصل معنا عبر واتساب">📱</a>
-    <a href="#" class="call-float" data-call-link aria-label="اتصل بنا">📞</a>
+  <!-- Permanent bottom action bar: WhatsApp + Call -->
+  <div class="bottom-bar">
+    <a href="#" target="_blank" rel="noopener" class="bottom-bar-btn bottom-bar-whatsapp" data-whatsapp-link aria-label="تواصل معنا عبر واتساب">
+      <span class="bottom-bar-icon">📱</span> واتساب
+    </a>
+    <a href="#" class="bottom-bar-btn bottom-bar-call" data-call-link aria-label="اتصل بنا">
+      <span class="bottom-bar-icon">📞</span> اتصال
+    </a>
   </div>
 
   <!-- Footer -->
@@ -91,6 +94,9 @@
   <footer class="footer">
     <p>© 2026 الطراز الأصيل — جميع الحقوق محفوظة</p>
     <p style="margin-top:5px; font-size:0.8rem;">للطلب والاستفسار: <a href="#" target="_blank" rel="noopener" data-whatsapp-link>واتساب</a></p>
+    <p style="margin-top:8px; font-size:0.7rem; opacity:0.5;">
+      <a href="admin.html" style="color: inherit; opacity: 0.6;">⚙️</a>
+    </p>
   </footer>
 
   <div class="toast" id="toast"></div>
