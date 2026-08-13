@@ -21,5 +21,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662736979_0_6wcy4.jpg"
     ]
+  },
+  {
+    "id": 7,
+    "name": "تفصيل مساند ظهر ديكور",
+    "price": "22",
+    "category": "majlis",
+    "description": "تفصيل مساند ظهر ديكور \nاسفنج البغلي جوده عاليه",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662832105_0_uk0c1.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662832105_0_uk0c1.jpg"
+    ]
   }
 ]
