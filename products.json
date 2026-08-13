@@ -11,17 +11,6 @@
     ]
   },
   {
-    "id": 3,
-    "name": "كنبة جلد إيطالي",
-    "description": "كنبة 3 مقاعد جلد طبيعي، تصميم إيطالي عصري",
-    "price": "262 د.ك",
-    "category": "kanab",
-    "image": "https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=400",
-    "images": [
-      "https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=400"
-    ]
-  },
-  {
     "id": 4,
     "name": "ستائر مخمل فاخرة",
     "description": "ستائر مخمل ثقيلة مع بطانة عازلة للضوء",
