@@ -1,7 +1,8 @@
 // ========== Configuration ==========
 // Single source of truth for the WhatsApp number — used on the storefront
 // and in the footer. Change it here only.
-const WHATSAPP_NUMBER = '966501234567'; // ← رقم واتساب المتجر (بالصيغة الدولية بدون +)
+const WHATSAPP_NUMBER = '96566462190'; // ← رقم واتساب المتجر (بالصيغة الدولية بدون +)
+const CALL_NUMBER = '+96566462190'; // ← رقم الاتصال المباشر
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400';
 const STORAGE_KEY = 'ta_products';
@@ -27,7 +28,7 @@ const FALLBACK_PRODUCTS = [
     id: 1,
     name: 'سجاد تركي فاخر - أحمر',
     description: 'سجاد تركي 100% صوف، نسيج يدوي، مقاس 3x4 متر',
-    price: '2,500 ر.س',
+    price: '205 د.ك',
     category: 'sajad',
     image: 'https://images.unsplash.com/photo-1600166898405-da9535204843?w=400'
   },
@@ -35,7 +36,7 @@ const FALLBACK_PRODUCTS = [
     id: 2,
     name: 'مجلس عربي كلاسيكي',
     description: 'مجلس عربي فاخر بألوان بيج وذهبي، يتسع لـ 12 شخص',
-    price: '4,800 ر.س',
+    price: '393 د.ك',
     category: 'majlis',
     image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400'
   },
@@ -43,7 +44,7 @@ const FALLBACK_PRODUCTS = [
     id: 3,
     name: 'كنبة جلد إيطالي',
     description: 'كنبة 3 مقاعد جلد طبيعي، تصميم إيطالي عصري',
-    price: '3,200 ر.س',
+    price: '262 د.ك',
     category: 'kanab',
     image: 'https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=400'
   },
@@ -51,7 +52,7 @@ const FALLBACK_PRODUCTS = [
     id: 4,
     name: 'ستائر مخمل فاخرة',
     description: 'ستائر مخمل ثقيلة مع بطانة عازلة للضوء',
-    price: '1,200 ر.س',
+    price: '98 د.ك',
     category: 'sitar',
     image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400'
   }
@@ -162,6 +163,9 @@ function whatsappLink(message) {
 function wireWhatsappLinks() {
   document.querySelectorAll('[data-whatsapp-link]').forEach(el => {
     el.href = whatsappLink('مرحباً الطراز الأصيل، أرغب بالاستفسار عن منتجاتكم');
+  });
+  document.querySelectorAll('[data-call-link]').forEach(el => {
+    el.href = `tel:${CALL_NUMBER}`;
   });
 }
 
