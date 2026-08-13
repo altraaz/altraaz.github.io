@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الطراز الأصيل | منتجات القسم</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+</head>
+<body>
+  <!-- شريط المرور -->
+  <div class="ticker-wrap">
+    <div class="ticker" id="tickerContent">
+      <span>جاري التحميل...</span>
+    </div>
+  </div>
+
+  <!-- الهيدر -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🏛️</div>
+        <div>
+          <div class="logo-text">الطراز الأصيل</div>
+          <span class="logo-sub">مفروشات فاخرة بأصالة تراثية</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="category.html?cat=sajad">سجاد</a>
+        <a href="category.html?cat=majlis">مجالس</a>
+        <a href="category.html?cat=kanab">كنب</a>
+        <a href="category.html?cat=sitar">ستائر</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- عنوان القسم -->
+  <section class="cat-hero" id="catHero">
+    <h1 id="catTitle">المنتجات</h1>
+    <p id="catSubtitle">اختر ما يناسبك</p>
+  </section>
+
+  <div class="container">
+    <div class="products-grid" id="productsGrid">
+      <!-- يملأها JavaScript -->
+    </div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="icon">📦</div>
+      <h3>لا توجد منتجات في هذا القسم</h3>
+    </div>
+  </div>
+
+  <!-- الشريط السفلي -->
+  <div class="bottom-bar">
+    <a href="#" target="_blank" rel="noopener" class="bottom-bar-btn bottom-bar-whatsapp" data-whatsapp-link>
+      <span>📱</span> واتساب
+    </a>
+    <a href="#" class="bottom-bar-btn bottom-bar-call" data-call-link>
+      <span>📞</span> اتصال
+    </a>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 الطراز الأصيل — جميع الحقوق محفوظة</p>
+    <p style="margin-top:5px; font-size:0.8rem;">للطلب والاستفسار: <a href="#" data-whatsapp-link>واتساب</a></p>
+    <p style="margin-top:8px; font-size:0.7rem; opacity:0.5;">
+      <a href="admin.html" style="color:inherit; opacity:0.6;">⚙️</a>
+    </p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadProducts();
+      wireWhatsappLinks();
+      renderCategoryPage();
+      renderTicker();
+    });
+  </script>
+</body>
+</html>
