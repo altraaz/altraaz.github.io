@@ -32,5 +32,23 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662832105_0_uk0c1.jpg"
     ]
+  },
+  {
+    "id": 8,
+    "name": "سجاد التركي",
+    "price": "15",
+    "category": "sajad",
+    "description": "تركيب وتفصيل جميع أنواع السجاد \n\nونكشات حفر على طلب",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667809730_0_66rl0.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667809730_0_66rl0.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667813458_1_lpmmw.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667815627_2_ficw3.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667818369_3_lqpws.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667820716_4_sm698.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667822794_5_luy3u.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667824915_6_mwxbg.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667827482_7_qw5pb.jpg"
+    ]
   }
 ]
