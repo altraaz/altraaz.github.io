@@ -137,20 +137,6 @@ function saveProductsLocal(products) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
 }
 
-// ========== Ticker ==========
-function renderTicker() {
-  const products = getProducts();
-  const ticker = document.getElementById('tickerContent');
-  if (!ticker || products.length === 0) return;
-
-  const latest = [...products].reverse().slice(0, 5);
-  const items = latest.map(p =>
-    `<span class="ticker-item">${CATEGORY_ICONS[p.category] || '📦'} ${escapeHtml(p.name)} — <strong>${escapeHtml(p.price)}</strong></span>`
-  ).join('<span class="ticker-dot">•</span>');
-
-  ticker.innerHTML = items + '<span class="ticker-dot">•</span>' + items;
-}
-
 // ========== Homepage ==========
 function renderHomepage() {
   const container = document.getElementById('homeSections');
