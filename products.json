@@ -50,5 +50,25 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667824915_6_mwxbg.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667827482_7_qw5pb.jpg"
     ]
+  },
+  {
+    "id": 9,
+    "name": "مجالس الكويت",
+    "price": "12",
+    "category": "majlis",
+    "description": "تفصيل جميع أنواع جلسات ديكور والاسفنج \n\nعلى طلب",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668368135_0_ig6ey.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668368135_0_ig6ey.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668379632_1_atuzv.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668393253_2_alg29.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668400730_3_thjs3.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668410866_4_zlnhj.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668426025_5_7jwbc.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668441303_6_r5shk.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668457983_7_g6kvm.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668469639_8_7lkq5.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668485614_9_k8b2s.jpg"
+    ]
   }
 ]
