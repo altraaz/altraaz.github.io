@@ -19,6 +19,13 @@ const CATEGORY_ICONS = {
   sitar: '🪟'
 };
 
+const CATEGORY_BG = {
+  sajad: 'linear-gradient(135deg, #8B4513 0%, #D2691E 100%)',
+  majlis: 'linear-gradient(135deg, #2F4F4F 0%, #556B2F 100%)',
+  kanab: 'linear-gradient(135deg, #4A3728 0%, #8B7355 100%)',
+  sitar: 'linear-gradient(135deg, #483D8B 0%, #6A5ACD 100%)'
+};
+
 const FALLBACK_PRODUCTS = [
   {
     id: 1,
@@ -54,10 +61,8 @@ const FALLBACK_PRODUCTS = [
   }
 ];
 
-let currentCategory = 'all';
-let currentSearch = '';
-let editingId = null;
 let currentImages = [];
+let editingId = null;
 let isPublishing = false;
 
 // ========== API Helpers ==========
@@ -108,62 +113,85 @@ function saveProductsLocal(products) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
 }
 
-// ========== Visitor Page: Display ==========
-function filterProducts(category) {
-  currentCategory = category;
-  document.querySelectorAll('.cat-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.cat === category);
-  });
-  renderStorefront();
-}
-
-function searchProducts(term) {
-  currentSearch = term.trim().toLowerCase();
-  renderStorefront();
-}
-
-function renderStorefront() {
+// ========== Ticker ==========
+function renderTicker() {
   const products = getProducts();
+  const ticker = document.getElementById('tickerContent');
+  if (!ticker || products.length === 0) return;
+
+  const latest = [...products].reverse().slice(0, 5);
+  const items = latest.map(p =>
+    `<span class="ticker-item">${CATEGORY_ICONS[p.category] || '📦'} ${escapeHtml(p.name)} — <strong>${escapeHtml(p.price)}</strong></span>`
+  ).join('<span class="ticker-dot">•</span>');
+
+  ticker.innerHTML = items + '<span class="ticker-dot">•</span>' + items;
+}
+
+// ========== Homepage ==========
+function renderHomepage() {
+  const container = document.getElementById('homeSections');
+  if (!container) return;
+
+  const products = getProducts();
+  const cats = ['sajad', 'majlis', 'kanab', 'sitar'];
+
+  container.innerHTML = cats.map(cat => {
+    const catProducts = products.filter(p => p.category === cat).slice(-3).reverse();
+    if (catProducts.length === 0) return '';
+
+    const cards = catProducts.map(p => productCard(p)).join('');
+
+    return `
+      <section class="home-section">
+        <div class="section-header">
+          <h2>${CATEGORY_ICONS[cat]} ${CATEGORY_LABELS[cat]}</h2>
+          <a href="category.html?cat=${cat}" class="section-more">عرض الكل ←</a>
+        </div>
+        <div class="products-grid">${cards}</div>
+      </section>
+    `;
+  }).join('');
+}
+
+// ========== Category Page ==========
+function renderCategoryPage() {
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat');
+  if (!cat) return;
+
+  const titleEl = document.getElementById('catTitle');
+  const subEl = document.getElementById('catSubtitle');
+  const hero = document.getElementById('catHero');
   const grid = document.getElementById('productsGrid');
   const empty = document.getElementById('emptyState');
-  const title = document.getElementById('sectionTitle');
-  const count = document.getElementById('sectionCount');
 
-  if (!grid) return;
+  if (titleEl) titleEl.textContent = CATEGORY_LABELS[cat] || cat;
+  if (subEl) subEl.textContent = 'اختر ما يناسب ذوقك من تشكيلة ' + (CATEGORY_LABELS[cat] || cat);
+  if (hero) hero.style.background = CATEGORY_BG[cat] || CATEGORY_BG.sajad;
 
-  title.textContent = currentCategory === 'all' ? 'جميع المنتجات' : (CATEGORY_LABELS[currentCategory] || currentCategory);
+  const products = getProducts().filter(p => p.category === cat);
 
-  let filtered = currentCategory === 'all' ? products : products.filter(p => p.category === currentCategory);
-  if (currentSearch) {
-    filtered = filtered.filter(p =>
-      p.name.toLowerCase().includes(currentSearch) ||
-      (p.description || '').toLowerCase().includes(currentSearch)
-    );
-  }
-
-  if (count) count.textContent = `${filtered.length} منتج`;
-
-  if (filtered.length === 0) {
-    grid.style.display = 'none';
-    empty.style.display = 'block';
+  if (products.length === 0) {
+    if (grid) grid.style.display = 'none';
+    if (empty) empty.style.display = 'block';
     return;
   }
 
-  grid.style.display = 'grid';
-  empty.style.display = 'none';
+  if (grid) {
+    grid.style.display = 'grid';
+    grid.innerHTML = products.map(p => productCard(p)).join('');
+  }
+  if (empty) empty.style.display = 'none';
+}
 
-  grid.innerHTML = filtered.map(p => {
-    const mainImage = p.images && p.images.length > 0 ? p.images[0] : (p.image || DEFAULT_IMAGE);
-    const gallery = p.images && p.images.length > 1 ? p.images.slice(1) : [];
-    const galleryHtml = gallery.length > 0 ? `
-      <div class="product-gallery">
-        ${gallery.map((img) => `<img src="${img}" alt="" class="product-gallery-thumb" loading="lazy" onclick="this.closest('.product-card').querySelector('.product-img').src='${img}'">`).join('')}
-      </div>
-    ` : '';
-    return `
+// ========== Product Card ==========
+function productCard(p) {
+  const mainImage = p.images && p.images.length > 0 ? p.images[0] : (p.image || DEFAULT_IMAGE);
+  return `
     <div class="product-card">
-      <img src="${mainImage}" alt="${escapeHtml(p.name)}" class="product-img" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
-      ${galleryHtml}
+      <div class="product-img-wrap">
+        <img src="${mainImage}" alt="${escapeHtml(p.name)}" class="product-img" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
+      </div>
       <div class="product-body">
         <span class="product-category">${CATEGORY_ICONS[p.category] || '📦'} ${CATEGORY_LABELS[p.category] || p.category}</span>
         <h3 class="product-name">${escapeHtml(p.name)}</h3>
@@ -177,7 +205,7 @@ function renderStorefront() {
         </div>
       </div>
     </div>
-  `}).join('');
+  `;
 }
 
 function whatsappLink(message) {
@@ -193,7 +221,7 @@ function wireWhatsappLinks() {
   });
 }
 
-// ========== Admin: Add / Update / Delete Product ==========
+// ========== Admin Functions ==========
 async function addProduct(e) {
   e.preventDefault();
   if (isPublishing) return false;
@@ -247,7 +275,7 @@ async function addProduct(e) {
     await apiRequest('/api/publish-products', { products });
 
     saveProductsLocal(products);
-    showToast('✅ تم النشر بنجاح! قد يستغرق 30–90 ثانية ليظهر للزوار.');
+    showToast('✅ تم النشر بنجاح!');
 
     document.getElementById('addForm').reset();
     removeAllImages();
@@ -317,7 +345,6 @@ async function deleteProduct(id) {
   }
 }
 
-// ========== Admin: Render Table ==========
 function renderAdminTable(searchTerm) {
   const tbody = document.getElementById('adminTableBody');
   const empty = document.getElementById('adminEmpty');
@@ -358,7 +385,6 @@ function renderAdminTable(searchTerm) {
   `}).join('');
 }
 
-// ========== Admin: Image Upload (Multiple) ==========
 function handleImageFile(event) {
   const files = Array.from(event.target.files || []);
   if (files.length === 0) return;
@@ -437,7 +463,6 @@ function removeAllImages() {
   renderImagePreviews();
 }
 
-// ========== Utilities ==========
 function escapeHtml(text) {
   if (!text) return '';
   const div = document.createElement('div');
