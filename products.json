@@ -70,5 +70,16 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668469639_8_7lkq5.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668485614_9_k8b2s.jpg"
     ]
+  },
+  {
+    "id": 10,
+    "name": "سجاد تركي",
+    "price": "13",
+    "category": "sajad",
+    "description": "تركيب جميع أنواع السجاد التركي درجة الاولى",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786670621366_0_ccqut.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786670621366_0_ccqut.jpg"
+    ]
   }
 ]
