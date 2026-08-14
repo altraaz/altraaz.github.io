@@ -149,7 +149,7 @@ function renderHomepage() {
     const catProducts = products.filter(p => p.category === cat).slice(-2).reverse();
     if (catProducts.length === 0) return '';
 
-    const cards = catProducts.map(p => productCard(p)).join('');
+    const cards = catProducts.map(p => homeThumbCard(p, cat)).join('');
 
     return `
       <section class="home-section">
@@ -157,12 +157,23 @@ function renderHomepage() {
           <h2>${CATEGORY_ICONS[cat]} ${CATEGORY_LABELS[cat]}</h2>
           <a href="category.html?cat=${cat}" class="section-more">عرض الكل ←</a>
         </div>
-        <div class="products-grid products-grid--compact">${cards}</div>
+        <div class="cat-preview-grid">${cards}</div>
       </section>
     `;
   }).join('');
+}
 
-  initGalleries(container);
+// بطاقة مصغّرة لمعاينة الصفحة الرئيسية: صورة + اسم فقط، تفتح على قسم المنتج (بنفس أسلوب سالفورد)
+function homeThumbCard(p, cat) {
+  const mainImage = (p.images && p.images[0]) || p.image || DEFAULT_IMAGE;
+  return `
+    <a href="category.html?cat=${cat}" class="thumb-card">
+      <div class="thumb-img-wrap">
+        <img src="${mainImage}" alt="${escapeHtml(p.name)} - ${CATEGORY_LABELS[cat] || ''} الكويت" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
+      </div>
+      <div class="thumb-title">${escapeHtml(p.name)}</div>
+    </a>
+  `;
 }
 
 // ========== Category Page ==========
