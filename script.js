@@ -161,6 +161,8 @@ function renderHomepage() {
       </section>
     `;
   }).join('');
+
+  initGalleries(container);
 }
 
 // ========== Category Page ==========
@@ -207,6 +209,7 @@ function renderCategoryPage() {
   if (grid) {
     grid.style.display = 'grid';
     grid.innerHTML = products.map(p => productCard(p)).join('');
+    initGalleries(grid);
   }
   if (empty) empty.style.display = 'none';
 
@@ -258,11 +261,30 @@ function injectCategorySchema(cat, products, pageUrl) {
 
 // ========== Product Card ==========
 function productCard(p) {
-  const mainImage = p.images && p.images.length > 0 ? p.images[0] : (p.image || DEFAULT_IMAGE);
+  const imgs = (p.images && p.images.length > 0) ? p.images : [p.image || DEFAULT_IMAGE];
+  const hasMultiple = imgs.length > 1;
+  const altBase = `${escapeHtml(p.name)} - ${CATEGORY_LABELS[p.category] || ''} الكويت`;
+
+  const slides = imgs.map((url, i) => `
+    <img src="${url}" alt="${altBase}${hasMultiple ? ' - صورة ' + (i + 1) : ''}" class="gallery-img" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
+  `).join('');
+
+  const dots = hasMultiple ? `
+    <div class="gallery-dots">
+      ${imgs.map((_, i) => `<span class="gallery-dot${i === 0 ? ' active' : ''}"></span>`).join('')}
+    </div>` : '';
+
+  const counter = hasMultiple ? `<span class="gallery-counter">1/${imgs.length}</span>` : '';
+
+  const arrows = hasMultiple ? `
+    <button type="button" class="gallery-arrow gallery-prev" aria-label="الصورة السابقة">‹</button>
+    <button type="button" class="gallery-arrow gallery-next" aria-label="الصورة التالية">›</button>` : '';
+
   return `
     <div class="product-card">
-      <div class="product-img-wrap">
-        <img src="${mainImage}" alt="${escapeHtml(p.name)} - ${CATEGORY_LABELS[p.category] || ''} الكويت" class="product-img" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
+      <div class="product-gallery">
+        <div class="gallery-track">${slides}</div>
+        ${dots}${counter}${arrows}
       </div>
       <div class="product-body">
         <span class="product-category">${CATEGORY_ICONS[p.category] || '📦'} ${CATEGORY_LABELS[p.category] || p.category}</span>
@@ -278,6 +300,47 @@ function productCard(p) {
       </div>
     </div>
   `;
+}
+
+// تفعيل التمرير بين الصور: سحب سلس + نقاط + أسهم + عداد، لكل بطاقة فيها أكثر من صورة
+function initGalleries(container) {
+  if (!container) return;
+  container.querySelectorAll('.product-gallery').forEach(gallery => {
+    const track = gallery.querySelector('.gallery-track');
+    const dots = gallery.querySelectorAll('.gallery-dot');
+    const counter = gallery.querySelector('.gallery-counter');
+    const count = dots.length;
+    if (!track || count === 0) return;
+
+    let current = 0;
+
+    const goTo = (i) => {
+      i = Math.max(0, Math.min(count - 1, i));
+      track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+    };
+
+    const syncActive = () => {
+      const i = Math.round(track.scrollLeft / track.clientWidth);
+      if (i === current || i < 0 || i >= count) return;
+      current = i;
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+      if (counter) counter.textContent = `${current + 1}/${count}`;
+    };
+
+    let ticking = false;
+    track.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { syncActive(); ticking = false; });
+    }, { passive: true });
+
+    dots.forEach((dot, idx) => dot.addEventListener('click', () => goTo(idx)));
+
+    const prevBtn = gallery.querySelector('.gallery-prev');
+    const nextBtn = gallery.querySelector('.gallery-next');
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); goTo(current + 1); });
+  });
 }
 
 function whatsappLink(message) {
