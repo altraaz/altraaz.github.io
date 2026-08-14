@@ -146,7 +146,7 @@ function renderHomepage() {
   const cats = ['sajad', 'majlis', 'kanab', 'sitar'];
 
   container.innerHTML = cats.map(cat => {
-    const catProducts = products.filter(p => p.category === cat).slice(-3).reverse();
+    const catProducts = products.filter(p => p.category === cat).slice(-2).reverse();
     if (catProducts.length === 0) return '';
 
     const cards = catProducts.map(p => productCard(p)).join('');
@@ -157,7 +157,7 @@ function renderHomepage() {
           <h2>${CATEGORY_ICONS[cat]} ${CATEGORY_LABELS[cat]}</h2>
           <a href="category.html?cat=${cat}" class="section-more">عرض الكل ←</a>
         </div>
-        <div class="products-grid">${cards}</div>
+        <div class="products-grid products-grid--compact">${cards}</div>
       </section>
     `;
   }).join('');

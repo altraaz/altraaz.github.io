@@ -249,6 +249,44 @@ a { color: inherit; text-decoration: none; }
   gap: 1.5rem;
 }
 
+/* نسخة مصغّرة (نص الحجم تقريباً) لآخر منتجين بكل قسم بالصفحة الرئيسية */
+.products-grid--compact {
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.products-grid--compact .product-gallery { height: 100px; }
+.products-grid--compact .product-body { padding: 0.6rem; }
+
+.products-grid--compact .product-category {
+  padding: 2px 7px;
+  font-size: 0.6rem;
+}
+
+.products-grid--compact .product-name {
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.products-grid--compact .product-desc {
+  font-size: 0.68rem;
+  margin-bottom: 0.5rem;
+}
+
+.products-grid--compact .product-footer { padding-top: 0.4rem; }
+
+.products-grid--compact .product-price { font-size: 0.85rem; }
+
+.products-grid--compact .whatsapp-btn {
+  padding: 5px 9px;
+  font-size: 0.72rem;
+}
+
+.products-grid--compact .gallery-dot { width: 4px; height: 4px; }
+.products-grid--compact .gallery-dot.active { width: 12px; }
+.products-grid--compact .gallery-counter { font-size: 0.55rem; padding: 1px 6px; }
+.products-grid--compact .gallery-arrow { width: 22px; height: 22px; font-size: 0.95rem; }
+
 .product-card {
   background: var(--bg-card);
   border-radius: var(--radius);
