@@ -19,6 +19,30 @@ const CATEGORY_ICONS = {
   sitar: '🪟'
 };
 
+// عناوين ووصف مخصص لكل قسم — يمنع تطابق محتوى صفحات الأقسام في نتائج البحث
+const CATEGORY_META = {
+  sajad: {
+    title: 'سجاد تركي فاخر في الكويت | تفصيل وتركيب - الطراز الأصيل',
+    description: 'سجاد تركي سميك وسجاد مفروش بجودة عالية في الكويت، مع خدمة تركيب وتوصيل لجميع المناطق. اطلب الآن عبر واتساب.',
+    subtitle: 'سجاد تركي فاخر بمقاسات وأشكال متعددة، مع خدمة تفصيل وتركيب في جميع مناطق الكويت'
+  },
+  majlis: {
+    title: 'مجالس عربية وتفصيل مساند ظهر ديكور في الكويت - الطراز الأصيل',
+    description: 'مجالس عربية فاخرة وتفصيل مساند ظهر بإسفنج البغلي عالي الجودة في الكويت. تواصل معنا عبر واتساب للطلب والتفصيل.',
+    subtitle: 'مجالس عربية فاخرة وتفصيل مساند ظهر ديكور بجودة اسفنج البغلي، متوفرة للتوصيل داخل الكويت'
+  },
+  kanab: {
+    title: 'كنب مودرن وقنفة تركي في الكويت - الطراز الأصيل',
+    description: 'كنب مودرن وقنفة بخامات تركية وإسفنج البغلي عالي الجودة، بأسعار مناسبة وتوصيل لجميع مناطق الكويت.',
+    subtitle: 'كنب مودرن وقنفة بخامة تركية أصلية، مناسب لجميع أنماط الديكور المنزلي في الكويت'
+  },
+  sitar: {
+    title: 'ستائر مخمل فاخرة في الكويت | تفصيل حسب المقاس - الطراز الأصيل',
+    description: 'ستائر مخمل ثقيلة وعازلة للضوء بجودة عالية، تفصيل حسب المقاس وتوصيل سريع لجميع مناطق الكويت.',
+    subtitle: 'ستائر مخمل فاخرة تُفصّل حسب المقاس، بتوصيل سريع لجميع مناطق الكويت'
+  }
+};
+
 const CATEGORY_BG = {
   sajad: 'linear-gradient(135deg, #8B4513 0%, #D2691E 100%)',
   majlis: 'linear-gradient(135deg, #2F4F4F 0%, #556B2F 100%)',
@@ -164,10 +188,27 @@ function renderCategoryPage() {
   const hero = document.getElementById('catHero');
   const grid = document.getElementById('productsGrid');
   const empty = document.getElementById('emptyState');
+  const meta = CATEGORY_META[cat];
+  const pageUrl = `https://altraaz.github.io/category.html?cat=${cat}`;
 
   if (titleEl) titleEl.textContent = CATEGORY_LABELS[cat] || cat;
-  if (subEl) subEl.textContent = 'اختر ما يناسب ذوقك من تشكيلة ' + (CATEGORY_LABELS[cat] || cat);
+  if (subEl) subEl.textContent = meta ? meta.subtitle : 'اختر ما يناسب ذوقك من تشكيلة ' + (CATEGORY_LABELS[cat] || cat);
   if (hero) hero.style.background = CATEGORY_BG[cat] || CATEGORY_BG.sajad;
+
+  // تحديث عنوان الصفحة والوصف والرابط الأساسي بما يخص هذا القسم تحديداً
+  if (meta) {
+    document.title = meta.title;
+    const metaDesc = document.getElementById('metaDescription');
+    if (metaDesc) metaDesc.setAttribute('content', meta.description);
+    const ogTitle = document.getElementById('ogTitle');
+    if (ogTitle) ogTitle.setAttribute('content', meta.title);
+    const ogDesc = document.getElementById('ogDescription');
+    if (ogDesc) ogDesc.setAttribute('content', meta.description);
+  }
+  const ogUrl = document.getElementById('ogUrl');
+  if (ogUrl) ogUrl.setAttribute('content', pageUrl);
+  const canonical = document.getElementById('canonicalLink');
+  if (canonical) canonical.setAttribute('href', pageUrl);
 
   const products = getProducts().filter(p => p.category === cat);
 
@@ -182,6 +223,51 @@ function renderCategoryPage() {
     grid.innerHTML = products.map(p => productCard(p)).join('');
   }
   if (empty) empty.style.display = 'none';
+
+  injectCategorySchema(cat, products, pageUrl);
+}
+
+// بيانات منظّمة (Schema): مسار تصفح + قائمة منتجات القسم بأسعارها
+function injectCategorySchema(cat, products, pageUrl) {
+  const old = document.getElementById('categorySchema');
+  if (old) old.remove();
+
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://altraaz.github.io/' },
+      { '@type': 'ListItem', position: 2, name: CATEGORY_LABELS[cat] || cat, item: pageUrl }
+    ]
+  };
+
+  const itemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: CATEGORY_LABELS[cat] || cat,
+    itemListElement: products.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: p.name,
+        description: p.description || '',
+        image: (p.images && p.images[0]) || p.image || DEFAULT_IMAGE,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'KWD',
+          price: String(p.price).replace(/[^\d.]/g, '') || '0',
+          availability: 'https://schema.org/InStock'
+        }
+      }
+    }))
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.id = 'categorySchema';
+  script.textContent = JSON.stringify([breadcrumb, itemList]);
+  document.head.appendChild(script);
 }
 
 // ========== Product Card ==========
@@ -190,7 +276,7 @@ function productCard(p) {
   return `
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="${mainImage}" alt="${escapeHtml(p.name)}" class="product-img" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
+        <img src="${mainImage}" alt="${escapeHtml(p.name)} - ${CATEGORY_LABELS[p.category] || ''} الكويت" class="product-img" loading="lazy" onerror="this.src='${DEFAULT_IMAGE}'">
       </div>
       <div class="product-body">
         <span class="product-category">${CATEGORY_ICONS[p.category] || '📦'} ${CATEGORY_LABELS[p.category] || p.category}</span>
