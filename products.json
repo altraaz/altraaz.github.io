@@ -103,5 +103,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786836254834_0_kgf5e.jpg"
     ]
+  },
+  {
+    "id": 13,
+    "name": "سجاد الكوري",
+    "price": "15",
+    "category": "sajad",
+    "description": "تركيب وتفصيل جميع انواع السجاد",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786836315762_0_lh2yw.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786836315762_0_lh2yw.jpg"
+    ]
   }
 ]
