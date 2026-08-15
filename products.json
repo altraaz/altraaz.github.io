@@ -378,5 +378,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837667033_0_foxjc.jpg"
     ]
+  },
+  {
+    "id": 38,
+    "name": "مجالس الكويت",
+    "price": "10",
+    "category": "majlis",
+    "description": "تفصيل جميع انواع المجلس \n\nديكور+آسفنج+ارضايات",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837715306_0_gxqcf.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837715306_0_gxqcf.jpg"
+    ]
   }
 ]
