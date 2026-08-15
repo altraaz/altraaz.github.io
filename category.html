@@ -65,6 +65,10 @@
   <footer class="footer">
     <p>© 2026 الطراز الأصيل — جميع الحقوق محفوظة</p>
     <p style="margin-top:5px; font-size:0.8rem;">للطلب والاستفسار: <a href="#" data-whatsapp-link>واتساب</a></p>
+    <p style="margin-top:4px; font-size:0.75rem; opacity:0.65;">📍 الضجيج - مجمع غاليريا، الكويت</p>
+    <p class="footer-links">
+      <a href="about.html">من نحن</a><span>·</span><a href="delivery-payment.html">التوصيل والدفع</a><span>·</span><a href="reviews.html">آراء العملاء</a><span>·</span><a href="blog/index.html">المدونة</a>
+    </p>
     <p style="margin-top:8px; font-size:0.7rem; opacity:0.5;">
       <a href="admin.html" style="color:inherit; opacity:0.6;">⚙️</a>
     </p>
@@ -75,7 +79,7 @@
   <script src="script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
-      await loadProducts();
+      await Promise.all([loadProducts(), loadProductSlugs()]);
       wireWhatsappLinks();
       renderCategoryPage();
     });
