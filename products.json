@@ -180,5 +180,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786836697063_0_h64bv.jpg"
     ]
+  },
+  {
+    "id": 20,
+    "name": "كنب الكويت",
+    "price": "35",
+    "category": "kanab",
+    "description": "تفصيل جميع انواع قنات وكنب\n\nآسفنج البغلي درجة الاولى",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786836737431_0_2awan.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786836737431_0_2awan.jpg"
+    ]
   }
 ]
