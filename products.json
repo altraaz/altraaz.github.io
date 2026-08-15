@@ -334,5 +334,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837420149_0_zxbri.jpg"
     ]
+  },
+  {
+    "id": 34,
+    "name": "ستائر الكويت",
+    "price": "5",
+    "category": "sitar",
+    "description": "تفصيل جميع انواع الستائر \n\nخام +رول+ويفي+شتر+عازل",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837454205_0_7whi3.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837454205_0_7whi3.jpg"
+    ]
   }
 ]
