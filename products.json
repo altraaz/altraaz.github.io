@@ -532,5 +532,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786844976325_0_l54dj.jpg"
     ]
+  },
+  {
+    "id": 52,
+    "name": "سجاد تركي",
+    "price": "15",
+    "category": "sajad",
+    "description": "تركيب جميع أنواع السجاد التركي \n\nسادة \n\nنكشات حفر  :على طلب",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786845027042_0_36nzh.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786845027042_0_36nzh.jpg"
+    ]
   }
 ]
