@@ -13,7 +13,7 @@ const path = require('path');
 const { slugify } = require('./slugify.js');
 
 const ROOT = path.join(__dirname, '..');
-const SITE_URL = 'https://altraaz.github.io';
+const SITE_URL = 'https://atrazakw.shop';
 const WHATSAPP_NUMBER = '96566462190';
 const PRODUCTS_JSON = path.join(ROOT, 'products.json');
 const OUTPUT_DIR = path.join(ROOT, 'product');

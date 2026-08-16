@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://altraaz.github.io/sitemap.xml
+Sitemap: https://atrazakw.shop/sitemap.xml

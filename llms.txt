@@ -3,18 +3,18 @@
 > متجر إلكتروني كويتي لبيع الأثاث والمفروشات المنزلية: سجاد فاخر، مجالس عربية،
 > كنب مودرن، وستائر مخمل. التوصيل داخل الكويت، والطلب مباشرة عبر واتساب.
 
-- الموقع: https://altraaz.github.io/
+- الموقع: https://atrazakw.shop/
 - الدولة: الكويت
 - العملة: دينار كويتي (د.ك)
 - طريقة الطلب: واتساب مباشرة من صفحة كل منتج
 
 ## الأقسام
 
-- [الرئيسية](https://altraaz.github.io/): آخر المنتجات من كل قسم
-- [سجاد](https://altraaz.github.io/category.html?cat=sajad): سجاد فاخر بمقاسات وأشكال متعددة
-- [مجالس](https://altraaz.github.io/category.html?cat=majlis): مجالس عربية ومساند ظهر ديكور
-- [كنب](https://altraaz.github.io/category.html?cat=kanab): كنب مودرن وقنفة
-- [ستائر](https://altraaz.github.io/category.html?cat=sitar): ستائر مخمل فاخرة
+- [الرئيسية](https://atrazakw.shop/): آخر المنتجات من كل قسم
+- [سجاد](https://atrazakw.shop/category.html?cat=sajad): سجاد فاخر بمقاسات وأشكال متعددة
+- [مجالس](https://atrazakw.shop/category.html?cat=majlis): مجالس عربية ومساند ظهر ديكور
+- [كنب](https://atrazakw.shop/category.html?cat=kanab): كنب مودرن وقنفة
+- [ستائر](https://atrazakw.shop/category.html?cat=sitar): ستائر مخمل فاخرة
 
 ## ملاحظات للزحف
 

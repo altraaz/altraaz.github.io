@@ -188,7 +188,7 @@ function renderCategoryPage() {
   const grid = document.getElementById('productsGrid');
   const empty = document.getElementById('emptyState');
   const meta = CATEGORY_META[cat];
-  const pageUrl = `https://altraaz.github.io/category.html?cat=${cat}`;
+  const pageUrl = `https://atrazakw.shop/category.html?cat=${cat}`;
 
   if (titleEl) titleEl.textContent = CATEGORY_LABELS[cat] || cat;
   if (subEl) subEl.textContent = meta ? meta.subtitle : 'اختر ما يناسب ذوقك من تشكيلة ' + (CATEGORY_LABELS[cat] || cat);
@@ -236,7 +236,7 @@ function injectCategorySchema(cat, products, pageUrl) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://altraaz.github.io/' },
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://atrazakw.shop/' },
       { '@type': 'ListItem', position: 2, name: CATEGORY_LABELS[cat] || cat, item: pageUrl }
     ]
   };
