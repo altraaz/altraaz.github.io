@@ -1,0 +1,53 @@
+name: توليد صفحات المنتجات
+
+# يعمل تلقائياً عند أي تعديل على products.json (من لوحة الإدارة أو يدوياً)
+# ويمكن تشغيله يدوياً من تبويب Actions عبر زر "Run workflow"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'products.json'
+      - 'scripts/generate-products.js'
+      - 'scripts/slugify.js'
+  workflow_dispatch:
+
+# صلاحية الكتابة مطلوبة حتى يستطيع الـ Action رفع الصفحات المولّدة
+permissions:
+  contents: write
+
+# يمنع تضارب تشغيلين في نفس الوقت (مثلاً عند إضافة منتجين بسرعة)
+concurrency:
+  group: generate-products
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: جلب المستودع
+        uses: actions/checkout@v4
+
+      - name: تجهيز Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: توليد صفحات المنتجات و sitemap
+        run: node scripts/generate-products.js
+
+      - name: رفع التغييرات إن وُجدت
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add product/ sitemap.xml product-slugs.json
+
+          if git diff --cached --quiet; then
+            echo "لا توجد تغييرات — لا حاجة لرفع شيء."
+            exit 0
+          fi
+
+          COUNT=$(ls -1 product/*.html 2>/dev/null | wc -l)
+          git commit -m "توليد تلقائي: ${COUNT} صفحة منتج + تحديث sitemap [skip ci]"
+          git push
