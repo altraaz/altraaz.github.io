@@ -686,5 +686,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786937070303_0_eol8x.jpg"
     ]
+  },
+  {
+    "id": 66,
+    "name": "كنب الكويت",
+    "price": "35",
+    "category": "kanab",
+    "description": "Iيوجد لدينا :\n✨️تفصال جميع انواع الجلسات✨️جميع انواع الخامات✨️\n✨️اسفنج البغلي✨️خدمة المنازل✨️توصيل لجميع مناطق الكويت✨️",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786937113349_0_oux41.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786937113349_0_oux41.jpg"
+    ]
   }
 ]
