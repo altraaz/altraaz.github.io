@@ -950,5 +950,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786937753634_0_jxvn7.jpg"
     ]
+  },
+  {
+    "id": 90,
+    "name": "سجاد تركي",
+    "price": "15",
+    "category": "sajad",
+    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370188425_0_1coxa.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370188425_0_1coxa.jpg"
+    ]
   }
 ]
