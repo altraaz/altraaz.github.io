@@ -1115,5 +1115,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370761492_0_r4qsq.jpg"
     ]
+  },
+  {
+    "id": 105,
+    "name": "سجاد زخرفه",
+    "price": "15",
+    "category": "sajad",
+    "description": "تفصيل سجاد زخرفه حسب الطلب",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370809617_0_h08vh.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370809617_0_h08vh.jpg"
+    ]
   }
 ]
