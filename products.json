@@ -1071,5 +1071,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370515576_0_c4pwl.jpg"
     ]
+  },
+  {
+    "id": 101,
+    "name": "سجاد تركي تفصيل",
+    "price": "15",
+    "category": "sajad",
+    "description": "نكش حفر",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370610208_0_1qpu3.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370610208_0_1qpu3.jpg"
+    ]
   }
 ]
