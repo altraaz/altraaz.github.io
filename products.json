@@ -1082,5 +1082,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370610208_0_1qpu3.jpg"
     ]
+  },
+  {
+    "id": 102,
+    "name": "تفصيل سجاد",
+    "price": "15",
+    "category": "sajad",
+    "description": "حفر يدوي",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370660227_0_93w3w.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370660227_0_93w3w.jpg"
+    ]
   }
 ]
