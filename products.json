@@ -1126,5 +1126,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370809617_0_h08vh.jpg"
     ]
+  },
+  {
+    "id": 106,
+    "name": "سجاد اطارات",
+    "price": "15",
+    "category": "sajad",
+    "description": "تفصيل سجاد اطارات",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370860818_0_4pfrz.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370860818_0_4pfrz.jpg"
+    ]
   }
 ]
