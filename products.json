@@ -1104,5 +1104,16 @@
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370708197_0_hw2da.jpg"
     ]
+  },
+  {
+    "id": 104,
+    "name": "سجاد حفر قطع",
+    "price": "15",
+    "category": "sajad",
+    "description": "تفصيل سجاد قطع",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370761492_0_r4qsq.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370761492_0_r4qsq.jpg"
+    ]
   }
 ]
