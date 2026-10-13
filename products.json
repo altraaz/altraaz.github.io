@@ -1211,5 +1211,21 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855028608_7_wai4r.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855031167_8_0i1as.jpg"
     ]
+  },
+  {
+    "id": 111,
+    "name": "كنب الكويت",
+    "price": "5",
+    "category": "kanab",
+    "description": "تفصيل كنب حق ديوانيات حق صالات استقبال حق مناسبات باجمل الاسعار",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855202447_0_qj0o7.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855202447_0_qj0o7.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855204335_1_gwgrm.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855206209_2_zbjlw.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855207999_3_d6w65.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855209677_4_tysve.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855211310_5_l2rzc.jpg"
+    ]
   }
 ]
