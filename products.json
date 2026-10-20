@@ -1230,20 +1230,19 @@
   },
   {
     "id": 112,
-    "name": "سجاد تركي تفصيل ديوانيات",
-    "price": "9",
-    "category": "sajad",
-    "description": "سجاد تركي باجمل الاسعار بسعر الجمله تفصيل ديوانيات فرش مكاتب ممرات",
-    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473445955_0_v210v.jpg",
+    "name": "كنب الكويت",
+    "price": "65",
+    "category": "majlis",
+    "description": "تفصيل ديوانيات مساند باجمل الاسعار تفصيل سجاد ستائر ممرات",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473587673_0_vtx23.jpg",
     "images": [
-      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473445955_0_v210v.jpg",
-      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473448675_1_u4g0n.jpg",
-      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473451052_2_u11u6.jpg",
-      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473452907_3_oes2o.jpg",
-      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473454636_4_x92ep.jpg",
-      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473456477_5_qmkm6.jpg",
-      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473458320_6_6vjn4.jpg",
-      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473460374_7_bhhf6.jpg"
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473587673_0_vtx23.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473589501_1_ogg77.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473591758_2_phldg.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473593392_3_feyd3.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473595132_4_u96jw.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473597180_5_jtd3d.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473598919_6_wbp3c.jpg"
     ]
   }
 ]
