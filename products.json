@@ -1244,5 +1244,24 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473597180_5_jtd3d.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473598919_6_wbp3c.jpg"
     ]
+  },
+  {
+    "id": 113,
+    "name": "سجاد تركي تفصيل ديوانيات",
+    "price": "5",
+    "category": "sajad",
+    "description": "تفصيل سجاد على طلب تفصيل نقشات حفر سجاد",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362891690_0_seju4.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362891690_0_seju4.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362894276_1_fa3pf.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362896413_2_k3nqf.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362898250_3_uj7cz.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362900201_4_wv99c.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362902048_5_11sta.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362903785_6_d45ca.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362905527_7_6yeew.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362907370_8_72u5k.jpg"
+    ]
   }
 ]
