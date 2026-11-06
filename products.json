@@ -1295,5 +1295,25 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967916668_4_jzoq0.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967918714_5_yf30r.jpg"
     ]
+  },
+  {
+    "id": 116,
+    "name": "سجاد تركي",
+    "price": "9",
+    "category": "sajad",
+    "description": "سجاد للبيع باجمل الاسعار تفصيل نقشات على طلب",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968002572_0_gc8wo.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968002572_0_gc8wo.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968004733_1_b98xb.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968006370_2_ud8p7.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968008214_3_c8rnn.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968010159_4_e2bd2.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968012102_5_66s29.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968013736_6_zxtx6.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968015679_7_yeotu.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968017635_8_10v8p.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968019888_9_x8bkp.jpg"
+    ]
   }
 ]
