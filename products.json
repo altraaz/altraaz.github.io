@@ -1263,5 +1263,21 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362905527_7_6yeew.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362907370_8_72u5k.jpg"
     ]
+  },
+  {
+    "id": 114,
+    "name": "كنب الكويت",
+    "price": "35",
+    "category": "kanab",
+    "description": "جدّد ديوانيتك بالفخامة والأناقة مع تشكيلتنا المميزة من سجاد الديوانيات ✨ تشكيلة واسعة من التصاميم الراقية والألوان المتناسقة التي تضيف لمسة من الجمال والرقي لمجالسك. جودة عالية، نعومة مميزة، وأناقة تليق بضيوفك. اجعل ديوانيتك عنواناً للفخامة والتميز، واختر السجاد الذي يعكس ذوقك! 🏡",
+    "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967831391_0_wrda7.jpg",
+    "images": [
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967831391_0_wrda7.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967833729_1_12iaz.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967835670_2_jmrdk.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967837479_3_g9y6w.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967839106_4_uk4di.jpg",
+      "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793967840892_5_j1mrf.jpg"
+    ]
   }
 ]
