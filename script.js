@@ -6,6 +6,11 @@ const STORAGE_KEY = 'ta_products';
 const API_BASE = 'https://altraaz-api.altraaz.workers.dev';
 
 const CATEGORY_LABELS = {
+  wijar: 'الأوجارات',
+  screen: 'ديكور الشاشة',
+  diwaniya: 'الديوانيات',
+  naqshat: 'نقشات الحفر اليدوي',
+  tables: 'الطاولات',
   sajad: 'سجاد',
   majlis: 'مجالس',
   kanab: 'كنب',
@@ -13,6 +18,11 @@ const CATEGORY_LABELS = {
 };
 
 const CATEGORY_ICONS = {
+  wijar: '🪵',
+  screen: '📺',
+  diwaniya: '🛋️',
+  naqshat: '🧶',
+  tables: '🪑',
   sajad: '🧶',
   majlis: '🛋️',
   kanab: '🪑',

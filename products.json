@@ -24,21 +24,22 @@
   },
   {
     "id": 7,
-    "name": "تفصيل مساند ظهر ديكور",
+    "name": "تفصيل مساند ظهر للديوانيات",
     "price": "22",
-    "category": "majlis",
-    "description": "تفصيل مساند ظهر ديكور \nاسفنج البغلي جوده عاليه",
+    "category": "diwaniya",
+    "description": "مساند ظهر للجلسات الأرضية في الديوانيات بإسفنج البغلي، تُفصَّل حسب طول الجدار واللون المطلوب.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662832105_0_uk0c1.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786662832105_0_uk0c1.jpg"
-    ]
+    ],
+    "slug": "7-tfsyl-msand-zhr-dykwr"
   },
   {
     "id": 8,
-    "name": "سجاد التركي",
+    "name": "سجاد ديوانية بنقشة حفر وسطية",
     "price": "15",
-    "category": "sajad",
-    "description": "تركيب وتفصيل جميع أنواع السجاد \n\nونكشات حفر على طلب",
+    "category": "naqshat",
+    "description": "سجاد للديوانيات بنقشة حفر يدوي في الوسط، بعدة تصاميم وألوان كما في الصور. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667809730_0_66rl0.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667809730_0_66rl0.jpg",
@@ -49,14 +50,16 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667822794_5_luy3u.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667824915_6_mwxbg.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786667827482_7_qw5pb.jpg"
-    ]
+    ],
+    "slug": "8-sjad-altrky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 9,
-    "name": "مجالس الكويت",
+    "name": "تجهيز ديوانية بجلسات أرضية وسجاد منقوش",
     "price": "12",
-    "category": "majlis",
-    "description": "تفصيل جميع أنواع جلسات ديكور والاسفنج \n\nعلى طلب",
+    "category": "diwaniya",
+    "description": "تجهيز ديوانيات كاملة: جلسات أرضية ومساند بإسفنج البغلي مع سجاد بنقشات حفر، حسب مقاس الديوانية.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668368135_0_ig6ey.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668368135_0_ig6ey.jpg",
@@ -69,7 +72,8 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668457983_7_g6kvm.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668469639_8_7lkq5.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786668485614_9_k8b2s.jpg"
-    ]
+    ],
+    "slug": "9-mjals-alkwyt"
   },
   {
     "id": 10,
@@ -359,36 +363,40 @@
   },
   {
     "id": 36,
-    "name": "مجالس الكويت",
+    "name": "جلسة ديوانية بقاعدة خشب",
     "price": "20",
-    "category": "majlis",
-    "description": "تفصيل جميع انواع المجلس \n\nديكور+آسفنج+ارضايات",
+    "category": "diwaniya",
+    "description": "جلسة ديوانية أرضية بقاعدة خشبية ومساند بإسفنج البغلي، تُفصَّل حسب المقاس.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837628675_0_sfeif.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837628675_0_sfeif.jpg"
-    ]
+    ],
+    "slug": "36-mjals-alkwyt"
   },
   {
     "id": 37,
-    "name": "مجالس الكويت",
-    "price": "10",
-    "category": "majlis",
-    "description": "تفصيل جميع انواع المجلس \n\nديكور+آسفنج+ارضايات",
+    "name": "نقشة حفر كحلية على سجاد رمادي",
+    "price": "15",
+    "category": "naqshat",
+    "description": "نقشة حفر يدوي بلونين الكحلي والأبيض على أرضية رمادية. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837667033_0_foxjc.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837667033_0_foxjc.jpg"
-    ]
+    ],
+    "slug": "37-mjals-alkwyt",
+    "priceUnit": "للمتر"
   },
   {
     "id": 38,
-    "name": "مجالس الكويت",
+    "name": "جلسة ديوانية أرضية مع سجاد منقوش",
     "price": "10",
-    "category": "majlis",
-    "description": "تفصيل جميع انواع المجلس \n\nديكور+آسفنج+ارضايات",
+    "category": "diwaniya",
+    "description": "جلسة ديوانية أرضية بمساند فاتحة مع سجاد بنقشة محفورة، تُفصَّل حسب المقاس واللون.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837715306_0_gxqcf.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1786837715306_0_gxqcf.jpg"
-    ]
+    ],
+    "slug": "38-mjals-alkwyt"
   },
   {
     "id": 39,
@@ -953,197 +961,231 @@
   },
   {
     "id": 90,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر يدوي بإطار ونقشات أطراف",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد بإطار محفور ونقشات على الأطراف، مناسب للصالات والديوانيات الواسعة. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370188425_0_1coxa.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370188425_0_1coxa.jpg"
-    ]
+    ],
+    "slug": "90-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 91,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر بإطار مزدوج ونقشة وسطية",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد بيج بإطار مزدوج محفور ونقشة دائرية في الوسط. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370229196_0_ilewe.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370229196_0_ilewe.jpg"
-    ]
+    ],
+    "slug": "91-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 92,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر يدوي بنقشة أغصان وزهور",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد فاتح بنقشة أغصان وزهور محفورة بألوان متعددة. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370256550_0_t3fip.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370256550_0_t3fip.jpg"
-    ]
+    ],
+    "slug": "92-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 93,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر بنقشة أرابيسك خضراء",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد بيج بنقشة أرابيسك محفورة باللون الأخضر في الوسط. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370294742_0_7le8q.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370294742_0_7le8q.jpg"
-    ]
+    ],
+    "slug": "93-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 94,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر بإطار هندسي ونقشة نجمية",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد أبيض بإطار هندسي محفور ونقشة نجمية في الوسط. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370323870_0_bjh1n.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370323870_0_bjh1n.jpg"
-    ]
+    ],
+    "slug": "94-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 95,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر مثمّن بإطار أوراق",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد بشكل مثمّن بإطار محفور ونقشة أوراق خضراء على الأطراف. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370351657_0_wgzh8.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370351657_0_wgzh8.jpg"
-    ]
+    ],
+    "slug": "95-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 96,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر بنقشة أرابيسك سوداء",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد بيج بنقشة أرابيسك محفورة باللون الأسود. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370375868_0_n2luq.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370375868_0_n2luq.jpg"
-    ]
+    ],
+    "slug": "96-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 97,
-    "name": "سجاد تركي",
+    "name": "سجاد ديوانية رمادي بنقشة وسطية",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد رمادي للديوانية بنقشة حفر بالأبيض والأسود في الوسط. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370406987_0_st6ms.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370406987_0_st6ms.jpg"
-    ]
+    ],
+    "slug": "97-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 98,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر بنقشة دائرية وسطية",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد بيج بنقشة دائرية محفورة بالأبيض في وسط الديوانية. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370437776_0_7l67r.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370437776_0_7l67r.jpg"
-    ]
+    ],
+    "slug": "98-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 99,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر بإطار أسود ونقشة ذهبية",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد فاتح بإطار محفور باللون الأسود ونقشة ذهبية في الوسط. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370468885_0_9cf3p.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370468885_0_9cf3p.jpg"
-    ]
+    ],
+    "slug": "99-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 100,
-    "name": "سجاد تركي",
+    "name": "سجاد حفر رمادي بإطار هندسي",
     "price": "15",
-    "category": "sajad",
-    "description": "بيع وتركيب جميع انواع السجاد \nماركات عاليةباسعار مغرية \n \nسجاد قص  باركية بلاستك  ممرات  \nنتصل نصل. دقة في الموعد سرعة في التركيب",
+    "category": "naqshat",
+    "description": "سجاد رمادي بإطار هندسي محفور حول منطقة الطاولة. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370515576_0_c4pwl.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370515576_0_c4pwl.jpg"
-    ]
+    ],
+    "slug": "100-sjad-trky",
+    "priceUnit": "للمتر"
   },
   {
     "id": 101,
-    "name": "سجاد تركي تفصيل",
+    "name": "سجاد حفر أزرق بنقشات هندسية ذهبية",
     "price": "15",
-    "category": "sajad",
-    "description": "نكش حفر",
+    "category": "naqshat",
+    "description": "سجاد أزرق بنقشات هندسية وإطار محفور باللون الذهبي. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370610208_0_1qpu3.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370610208_0_1qpu3.jpg"
-    ]
+    ],
+    "slug": "101-sjad-trky-tfsyl",
+    "priceUnit": "للمتر"
   },
   {
     "id": 102,
-    "name": "تفصيل سجاد",
+    "name": "سجاد حفر منقّط بنقشة وسطية",
     "price": "15",
-    "category": "sajad",
-    "description": "حفر يدوي",
+    "category": "naqshat",
+    "description": "سجاد بيج بنقاط محفورة ونقشة وإطار باللون الأخضر الرمادي. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370660227_0_93w3w.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370660227_0_93w3w.jpg"
-    ]
+    ],
+    "slug": "102-tfsyl-sjad",
+    "priceUnit": "للمتر"
   },
   {
     "id": 103,
-    "name": "سجاد الضجيج",
+    "name": "سجاد حفر كحلي بنقشة وإطار ذهبي",
     "price": "15",
-    "category": "sajad",
-    "description": "نكشات حسب الطلب",
+    "category": "naqshat",
+    "description": "سجاد كحلي بنقشة وسطية وإطار محفور باللون الذهبي. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370708197_0_hw2da.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370708197_0_hw2da.jpg"
-    ]
+    ],
+    "slug": "103-sjad-aldjyj",
+    "priceUnit": "للمتر"
   },
   {
     "id": 104,
-    "name": "سجاد حفر قطع",
+    "name": "سجاد حفر بإطار مفتاح يوناني",
     "price": "15",
-    "category": "sajad",
-    "description": "تفصيل سجاد قطع",
+    "category": "naqshat",
+    "description": "سجاد بيج بإطار محفور بنقشة المفتاح اليوناني. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370761492_0_r4qsq.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370761492_0_r4qsq.jpg"
-    ]
+    ],
+    "slug": "104-sjad-hfr-qta",
+    "priceUnit": "للمتر"
   },
   {
     "id": 105,
-    "name": "سجاد زخرفه",
+    "name": "سجاد حفر بزخرفة مورّدة",
     "price": "15",
-    "category": "sajad",
-    "description": "تفصيل سجاد زخرفه حسب الطلب",
+    "category": "naqshat",
+    "description": "سجاد بيج بزخرفة محفورة داكنة مع ورود زرقاء. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370809617_0_h08vh.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370809617_0_h08vh.jpg"
-    ]
+    ],
+    "slug": "105-sjad-zkhrfh",
+    "priceUnit": "للمتر"
   },
   {
     "id": 106,
-    "name": "سجاد اطارات",
+    "name": "سجاد حفر بإطار وزوايا مزخرفة",
     "price": "15",
-    "category": "sajad",
-    "description": "تفصيل سجاد اطارات",
+    "category": "naqshat",
+    "description": "سجاد فاتح بإطار محفور وزوايا مزخرفة بالأسود والرمادي. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370860818_0_4pfrz.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1787370860818_0_4pfrz.jpg"
-    ]
+    ],
+    "slug": "106-sjad-atarat",
+    "priceUnit": "للمتر"
   },
   {
     "id": 107,
-    "name": "سجاد تركي تفصيل ديوانيات",
-    "price": "8",
-    "category": "majlis",
-    "description": "تفصيل ديوانيات مساند تركيب سجاد تركيب ستائر باجمل الاسعار تفصيل ديوانيات تفصيل سجاد باجمل الاسعار",
+    "name": "تفصيل سجاد حفر يدوي للديوانيات",
+    "price": "15",
+    "category": "naqshat",
+    "description": "نماذج من تفصيل سجاد الحفر اليدوي للديوانيات: نقشات وسطية وإطارات وأطراف بألوان مختلفة، مع عينات الألوان المتوفرة. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791771172482_0_x7odp.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791771172482_0_x7odp.jpg",
@@ -1157,7 +1199,9 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791771189158_8_d8cin.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791771190766_9_6lrnd.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791771192541_10_sadhb.jpg"
-    ]
+    ],
+    "slug": "107-sjad-trky-tfsyl-dywanyat",
+    "priceUnit": "للمتر"
   },
   {
     "id": 108,
@@ -1195,10 +1239,10 @@
   },
   {
     "id": 110,
-    "name": "سجاد للبيع في الكويت",
-    "price": "5",
-    "category": "sajad",
-    "description": "بيع سجاد داخل الكويت تفصيل سجاد ممرات تفصيل نقشات ليزر على سجاد باجمل الاسعار",
+    "name": "سجاد ديوانية بنقشة حفر وعينات ألوان",
+    "price": "15",
+    "category": "naqshat",
+    "description": "سجاد ديوانيات بنقشات حفر وسطية، مع عينات ألوان السجاد المتوفرة للاختيار. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855010249_0_qrhnc.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855010249_0_qrhnc.jpg",
@@ -1210,7 +1254,9 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855025740_6_zc5bd.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855028608_7_wai4r.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1791855031167_8_0i1as.jpg"
-    ]
+    ],
+    "slug": "110-sjad-llbya-fy-alkwyt",
+    "priceUnit": "للمتر"
   },
   {
     "id": 111,
@@ -1230,10 +1276,10 @@
   },
   {
     "id": 112,
-    "name": "كنب الكويت",
+    "name": "جلسات ديوانية بإطار خشب مزخرف",
     "price": "65",
-    "category": "majlis",
-    "description": "تفصيل ديوانيات مساند باجمل الاسعار تفصيل سجاد ستائر ممرات",
+    "category": "diwaniya",
+    "description": "جلسات ديوانية مرتفعة بإطار خشب مزخرف ومقاعد ومساند فاتحة، تُفصَّل حسب طول الجدران.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473587673_0_vtx23.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473587673_0_vtx23.jpg",
@@ -1243,14 +1289,15 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473595132_4_u96jw.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473597180_5_jtd3d.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1792473598919_6_wbp3c.jpg"
-    ]
+    ],
+    "slug": "112-knb-alkwyt"
   },
   {
     "id": 113,
-    "name": "سجاد تركي تفصيل ديوانيات",
-    "price": "5",
-    "category": "sajad",
-    "description": "تفصيل سجاد على طلب تفصيل نقشات حفر سجاد",
+    "name": "نقشات حفر وسطية لسجاد الديوانيات",
+    "price": "15",
+    "category": "naqshat",
+    "description": "مجموعة نقشات حفر وسطية منفذة في ديوانيات بألوان أرضية مختلفة. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362891690_0_seju4.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362891690_0_seju4.jpg",
@@ -1262,7 +1309,9 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362903785_6_d45ca.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362905527_7_6yeew.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793362907370_8_72u5k.jpg"
-    ]
+    ],
+    "slug": "113-sjad-trky-tfsyl-dywanyat",
+    "priceUnit": "للمتر"
   },
   {
     "id": 114,
@@ -1298,10 +1347,10 @@
   },
   {
     "id": 116,
-    "name": "سجاد تركي",
-    "price": "9",
-    "category": "sajad",
-    "description": "سجاد للبيع باجمل الاسعار تفصيل نقشات على طلب",
+    "name": "سجاد ديوانيات بنقشات حفر يدوي متنوعة",
+    "price": "15",
+    "category": "naqshat",
+    "description": "أعمال سجاد ديوانيات بنقشات حفر يدوي متنوعة في الوسط وعلى الإطار. يُفصَّل حسب مقاس المكان واللون المطلوب، مع التوصيل والتركيب داخل الكويت.",
     "image": "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968002572_0_gc8wo.jpg",
     "images": [
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968002572_0_gc8wo.jpg",
@@ -1314,6 +1363,274 @@
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968015679_7_yeotu.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968017635_8_10v8p.jpg",
       "https://raw.githubusercontent.com/altraaz/altraaz.github.io/main/images/product_1793968019888_9_x8bkp.jpg"
+    ],
+    "slug": "116-sjad-trky",
+    "priceUnit": "للمتر"
+  },
+  {
+    "id": 117,
+    "name": "وجار ديوانية بخلفية شاشة ورفوف عرض سوداء",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "wijar",
+    "description": "وجار ديوانية بخلفية شاشة بألواح فاتحة، وعلى الجانبين رفوف عرض سوداء مضاءة لأدوات القهوة والتحف، مع قاعدة سفلية بطول الجدار. يُفصَّل حسب طول الجدار وارتفاعه، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/wijar/wijar-diwaniya-shasha-rufuf-sawda.jpg",
+    "images": [
+      "https://atrazakw.shop/images/wijar/wijar-diwaniya-shasha-rufuf-sawda.jpg"
+    ]
+  },
+  {
+    "id": 118,
+    "name": "وجار دلال برفوف بتشطيب رخامي مضاء",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "wijar",
+    "description": "وجار دلال بتشطيب رخامي وإضاءة خلفية، برفوف للدلال والفناجين على جانبي الشاشة وخانات سفلية لأدوات القهوة. يُفصَّل حسب طول الجدار وارتفاعه، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/wijar/wijar-dalal-rufuf-rukham.jpg",
+    "images": [
+      "https://atrazakw.shop/images/wijar/wijar-dalal-rufuf-rukham.jpg"
+    ]
+  },
+  {
+    "id": 119,
+    "name": "وجار ديوانية خشب بمكتبتين مضاءتين",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "wijar",
+    "description": "وجار ديوانية بلوح خشبي خلف الشاشة ومكتبتين خشب على الجانبين برفوف مضاءة، وقاعدة خشبية بطول الجدار. يُفصَّل حسب طول الجدار وارتفاعه، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/wijar/wijar-diwaniya-khashab-maktabatain.jpg",
+    "images": [
+      "https://atrazakw.shop/images/wijar/wijar-diwaniya-khashab-maktabatain.jpg"
+    ]
+  },
+  {
+    "id": 120,
+    "name": "وجار ديوانية خشب بشرائح طولية ورفوف مضاءة",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "wijar",
+    "description": "وجار ديوانية بخشب داكن لامع حول الشاشة، وألواح بشرائح طولية فيها خانات عرض مضاءة، وقاعدة بطول الجدار. يُفصَّل حسب طول الجدار وارتفاعه، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/wijar/wijar-diwaniya-khashab-sharaeh.jpg",
+    "images": [
+      "https://atrazakw.shop/images/wijar/wijar-diwaniya-khashab-sharaeh.jpg"
+    ]
+  },
+  {
+    "id": 121,
+    "name": "ديكور شاشة بألواح فاتحة وطاولة تلفزيون معلقة",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "screen",
+    "description": "ديكور شاشة بجدار فاتح وخطوط طولية سوداء على الجانب، مع طاولة تلفزيون معلقة بسطح أسود وأدراج بيج وإضاءة مخفية أسفلها. يُفصَّل حسب مقاس الجدار وحجم الشاشة، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/screen-decor/dikor-shasha-alwah-fatiha-tawila-muallaqa.jpg",
+    "images": [
+      "https://atrazakw.shop/images/screen-decor/dikor-shasha-alwah-fatiha-tawila-muallaqa.jpg"
+    ]
+  },
+  {
+    "id": 122,
+    "name": "ديكور شاشة خشب فاتح بمكتبة جانبية مضاءة",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "screen",
+    "description": "ديكور شاشة بألواح خشب فاتح وفواصل طولية، ومكتبة جانبية برفوف مضاءة، وطاولة تلفزيون معلقة بأدراج وإضاءة سفلية. يُفصَّل حسب مقاس الجدار وحجم الشاشة، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/screen-decor/dikor-shasha-khashab-fatih-maktaba-mudaa.jpg",
+    "images": [
+      "https://atrazakw.shop/images/screen-decor/dikor-shasha-khashab-fatih-maktaba-mudaa.jpg"
+    ]
+  },
+  {
+    "id": 123,
+    "name": "ديكور شاشة خشب مع مدفأة كهربائية ورفوف مضاءة",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "screen",
+    "description": "ديكور شاشة بألواح خشب داكن ولوح خلف الشاشة بإضاءة خلفية، وعمودين رفوف مضاءة على الجانبين، ومدفأة كهربائية داخل وحدة الأدراج السفلية. يُفصَّل حسب مقاس الجدار وحجم الشاشة، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/screen-decor/dikor-shasha-khashab-midfaa.jpg",
+    "images": [
+      "https://atrazakw.shop/images/screen-decor/dikor-shasha-khashab-midfaa.jpg"
+    ]
+  },
+  {
+    "id": 124,
+    "name": "ديكور شاشة رمادي بإضاءة خلفية ومكتبة سوداء",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "screen",
+    "description": "ديكور شاشة بلوح رمادي خلف التلفزيون مع إضاءة خلفية، على جدار ألواح فاتحة بخطوط سوداء، ومكتبة سوداء مضاءة على الجانب وأدراج معلقة. يُفصَّل حسب مقاس الجدار وحجم الشاشة، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/screen-decor/dikor-shasha-ramadi-idaa-khalfiya.jpg",
+    "images": [
+      "https://atrazakw.shop/images/screen-decor/dikor-shasha-ramadi-idaa-khalfiya.jpg"
+    ]
+  },
+  {
+    "id": 125,
+    "name": "ديكور شاشة بحجر جداري ورفوف معلقة مضاءة",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "screen",
+    "description": "ديكور شاشة بتكسية حجر على الجانبين ووسط فاتح بإضاءة مخفية، مع رفوف معلقة مضاءة وطاولة تلفزيون معلقة بإضاءة سفلية. يُفصَّل حسب مقاس الجدار وحجم الشاشة، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/screen-decor/dikor-shasha-hajar-rufuf-muallaqa.jpg",
+    "images": [
+      "https://atrazakw.shop/images/screen-decor/dikor-shasha-hajar-rufuf-muallaqa.jpg"
+    ]
+  },
+  {
+    "id": 126,
+    "name": "ديكور شاشة بشرائح خشبية وإضاءة مخفية",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "screen",
+    "description": "ديكور شاشة بألواح فاتحة لامعة خلف التلفزيون وشرائح خشبية طولية على الجانبين بإضاءة مخفية، وطاولة تلفزيون معلقة بيضاء. يُفصَّل حسب مقاس الجدار وحجم الشاشة، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/screen-decor/dikor-shasha-sharaeh-khashab-idaa-makhfiya.jpg",
+    "images": [
+      "https://atrazakw.shop/images/screen-decor/dikor-shasha-sharaeh-khashab-idaa-makhfiya.jpg"
+    ]
+  },
+  {
+    "id": 127,
+    "name": "ديكور شاشة بإطار خشب ورفوف جانبية مضاءة",
+    "price": "45",
+    "priceUnit": "للمتر",
+    "category": "screen",
+    "description": "ديكور شاشة بإطار خشبي حول التلفزيون ورفوف معلقة مضاءة على الجانبين، وخزائن عرض جانبية، ووحدة أدراج منخفضة بطول الجدار. يُفصَّل حسب مقاس الجدار وحجم الشاشة، والسعر 45 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/screen-decor/dikor-shasha-itar-khashab-rufuf.jpg",
+    "images": [
+      "https://atrazakw.shop/images/screen-decor/dikor-shasha-itar-khashab-rufuf.jpg"
+    ]
+  },
+  {
+    "id": 128,
+    "name": "سجاد ديوانية رمادي بنقشة دائرية كبيرة",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد ديوانية رمادي بنقشة حفر دائرية كبيرة في الوسط بلوني الكريمي والبرونزي، أمام جلسات أرضية ووجار. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-diwaniya-ramadi-naqsha-dairiya.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-diwaniya-ramadi-naqsha-dairiya.jpg"
+    ]
+  },
+  {
+    "id": 129,
+    "name": "سجاد ديوانية بيج بإطار هندسي رمادي",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد ديوانية بيج بإطار حفر هندسي رمادي يمتد أمام الجلسات الأرضية على طول الجدران. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-diwaniya-itar-handasi-ramadi.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-diwaniya-itar-handasi-ramadi.jpg",
+      "https://atrazakw.shop/images/naqshat/sijad-diwaniya-itar-handasi-ramadi-2.jpg",
+      "https://atrazakw.shop/images/naqshat/sijad-diwaniya-itar-handasi-ramadi-3.jpg"
+    ]
+  },
+  {
+    "id": 130,
+    "name": "سجاد حفر بإطار متدرج بني",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر فاتح بإطار بني متدرج بخطوط متداخلة على الأطراف، تحت طاولة المجلس. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-itar-mutadarrij-bunni.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-itar-mutadarrij-bunni.jpg"
+    ]
+  },
+  {
+    "id": 131,
+    "name": "سجاد حفر بنقشة دوائر متداخلة وورود",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر كريمي بخطوط دوائر متداخلة وأغصان بورود حمراء وأوراق خضراء. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-dawair-mutadakhila-wurud.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-dawair-mutadakhila-wurud.jpg"
+    ]
+  },
+  {
+    "id": 132,
+    "name": "سجاد حفر بزخرفة أغصان خضراء وسوداء على الطرف",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر بيج بزخرفة أغصان خضراء بإطار أسود تمتد على طرف السجادة وزاويتها. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-aghsan-khadra-sawda.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-aghsan-khadra-sawda.jpg"
+    ]
+  },
+  {
+    "id": 133,
+    "name": "سجاد حفر رمادي بزخارف على الأطراف",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر رمادي فاتح بزخارف رمادية داكنة على الزوايا والأطراف، وإطار داخلي بخط داكن. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-ramadi-zakharif-atraf.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-ramadi-zakharif-atraf.jpg"
+    ]
+  },
+  {
+    "id": 134,
+    "name": "سجاد حفر بإطار كحلي وبرتقالي",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر كريمي بحواف مشكّلة بإطار كحلي، وإطارات داخلية بالبرتقالي والبيج. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-itar-kuhli-burtuqali.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-itar-kuhli-burtuqali.jpg"
+    ]
+  },
+  {
+    "id": 135,
+    "name": "سجاد حفر بنقشة أرابيسك بنية كبيرة",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر بيج بنقشة أرابيسك بنية كبيرة تخرج عن حدود السجادة بشكل مفرّغ. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-arabesk-bunni-kabir.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-arabesk-bunni-kabir.jpg"
+    ]
+  },
+  {
+    "id": 136,
+    "name": "سجاد حفر رمادي بأغصان خضراء على الطرف",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر رمادي فاتح بأغصان خضراء محفورة على طرف السجادة بشكل مفرّغ. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-aghsan-khadra-taraf.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-aghsan-khadra-taraf.jpg"
+    ]
+  },
+  {
+    "id": 137,
+    "name": "سجاد حفر بإطار مفتاح يوناني برتقالي",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر بيج بإطار مفتاح يوناني باللون البرتقالي على الزوايا، في صالة جلوس. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-muftah-yunani-burtuqali.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-muftah-yunani-burtuqali.jpg"
+    ]
+  },
+  {
+    "id": 138,
+    "name": "سجاد حفر بزخارف بنية على الزوايا",
+    "price": "15",
+    "priceUnit": "للمتر",
+    "category": "naqshat",
+    "description": "سجاد حفر بيج بزخارف بنية مفرّغة على الزوايا، تحت طاولة وسط في مجلس. يُفصَّل حسب مقاس المكان واللون المطلوب، والسعر 15 د.ك للمتر ويتأكد السعر النهائي بعد أخذ المقاس، مع التوصيل والتركيب داخل الكويت.",
+    "image": "https://atrazakw.shop/images/naqshat/sijad-hafr-zakharif-bunniya-zawaya.jpg",
+    "images": [
+      "https://atrazakw.shop/images/naqshat/sijad-hafr-zakharif-bunniya-zawaya.jpg"
     ]
   }
 ]

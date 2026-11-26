@@ -1126,3 +1126,37 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ===== صفحات الأقسام (أوجارات، ديوانيات، نقشات، طاولات) ===== */
+.landing-text {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  line-height: 1.95;
+  color: var(--text);
+}
+.landing-text p { margin-bottom: 0.9rem; color: var(--text-light); }
+.landing-text h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin: 1.2rem 0 0.6rem;
+}
+.landing-text ul, .landing-text ol { padding-inline-start: 1.4rem; color: var(--text-light); }
+.landing-text li { margin-bottom: 0.35rem; }
+.landing-text .whatsapp-btn { display: inline-flex; margin-top: 0.5rem; }
+.landing-empty {
+  text-align: center;
+  color: var(--text-light);
+  padding: 1.5rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+}
+.landing-related { max-width: 900px; margin: 0 auto 2.5rem; }
+.landing-related h2 { font-size: 1.1rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.8rem; }
+.landing-related-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.product-name a { color: inherit; }
+.product-name a:hover { color: var(--primary); }
+
+/* صفحة المنتج: المعرض بعرض كامل والوصف كامل بدون قص */
+.product-gallery-detail { width: 100%; height: auto; }
+.product-desc-detail { display: block; -webkit-line-clamp: unset; overflow: visible; }
