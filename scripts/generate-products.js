@@ -229,7 +229,6 @@ function renderProductPage(product, allProducts) {
     image: imgs,
     sku: `ALTRAAZ-${product.id}`,
     brand: { '@type': 'Brand', name: BRAND },
-    category: info.label,
     offers: {
       '@type': 'Offer',
       url,
