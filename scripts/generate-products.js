@@ -236,7 +236,19 @@ function renderProductPage(product, allProducts) {
       price: cleanPrice(product.price),
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
-      seller: { '@type': 'Organization', name: BRAND }
+      seller: { '@type': 'Organization', name: BRAND },
+      // التوصيل والتركيب مجاني داخل الكويت
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: { '@type': 'MonetaryAmount', value: 0, currency: 'KWD' },
+        shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'KW' }
+      },
+      // القطع مفصّلة حسب الطلب فلا تُسترجع؛ عيوب التصنيع تُعالج على حساب المحل (موضّح في صفحة التوصيل والدفع)
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'KW',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted'
+      }
     }
   };
   const unitCode = UNIT_CODES[product.priceUnit];
